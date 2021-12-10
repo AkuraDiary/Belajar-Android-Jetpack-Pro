@@ -74,6 +74,7 @@
             android:layout_weight="1"
             android:text="@string/calculate_volume"
             android:visibility="gone"/>
+
         <Button
             android:id="@+id/btn_calculate_circumference"
             android:layout_width="match_parent"
@@ -91,16 +92,16 @@
             android:text="@string/calculate_surface_area"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/tv_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:text="@string/result"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/result"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>

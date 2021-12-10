@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         val length = activityMainBinding.edtLength.text.toString().trim()
         val width =  activityMainBinding.edtWidth.text.toString().trim()
-        val height = activityMainBinding.edtHeight.toString().trim()
+        val height = activityMainBinding.edtHeight.text.toString().trim()
 
         when{
             TextUtils.isEmpty(length)->{
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         visible()
                     }
                     R.id.btn_calculate_circumference -> {
-                        activityMainBinding.tvResult.text = mainViewModel.getCircumFerence().toString()
+                        activityMainBinding.tvResult.text = mainViewModel.getCircumference().toString()
                         gone()
                     }
                     R.id.btn_calculate_surface_area -> {

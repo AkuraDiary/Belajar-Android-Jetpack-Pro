@@ -1,7 +1,7 @@
 package com.example.myunittesting
 
 class MainViewModel(private val cuboidModel: CuboidModel) {
-    fun getCircumFerence() = cuboidModel.getCircumference()
+    fun getCircumference() = cuboidModel.getCircumference()
 
     fun getSurfaceArea() =  cuboidModel.getSurfaceArea()
 
