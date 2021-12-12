@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_academy.xml" value="0.14719202898550723" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_bookmark.xml" value="0.14719202898550723" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_module_content.xml" value="0.14719202898550723" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_module_list.xml" value="0.14719202898550723" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

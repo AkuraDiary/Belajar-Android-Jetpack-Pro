@@ -1,11 +1,12 @@
-package com.example.academy
+package com.example.academies.reader
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.academies.R
 
-class HomeActivity : AppCompatActivity() {
+class CourseReaderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_course_reader)
     }
 }

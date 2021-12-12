@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.academy">
+    package="com.example.academies">
 
     <application
         android:allowBackup="true"
@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Academy">
         <activity
-            android:name=".DetailCourseActivity"
+            android:name="com.example.academies.detail.DetailCourseActivity"
             android:exported="false"
             android:label="@string/title_activity_detail_course"
             android:theme="@style/Theme.Academy.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity"/>
+                android:value="com.example.academies.HomeActivity"/>
         </activity>
         <activity
-            android:name=".CourseReaderActivity"
+            android:name="com.example.academies.reader.CourseReaderActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name="com.example.academies.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

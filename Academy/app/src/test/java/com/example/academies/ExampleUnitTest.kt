@@ -1,4 +1,4 @@
-package com.example.academy
+package com.example.academies
 
 import org.junit.Test
 

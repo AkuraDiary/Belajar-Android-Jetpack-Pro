@@ -1,4 +1,4 @@
-package com.example.academy
+package com.example.academies.detail
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -7,7 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.academy.databinding.ActivityDetailCourseBinding
+import com.example.academies.R
+import com.example.academies.databinding.ActivityDetailCourseBinding
 
 class DetailCourseActivity : AppCompatActivity() {
 
@@ -30,11 +31,16 @@ class DetailCourseActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_detail_course)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    companion object{
+        const val EXTRA_COURSE = "extra_course"
     }
 }
