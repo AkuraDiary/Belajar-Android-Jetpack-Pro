@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/bg_button.xml" value="0.16927083333333334" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/bg_button_disable.xml" value="0.16927083333333334" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/ic_bookmark_selector.xml" value="0.10885416666666667" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/ic_error.xml" value="0.10885416666666667" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/ic_loading.xml" value="0.10885416666666667" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/ic_share_blue.xml" value="0.10885416666666667" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_academy.xml" value="0.14719202898550723" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_bookmark.xml" value="0.14719202898550723" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_module_content.xml" value="0.14719202898550723" />
