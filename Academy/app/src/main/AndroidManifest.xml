@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Academy">
         <activity
+            android:name=".DetailCourseActivity"
+            android:exported="false"
+            android:label="@string/title_activity_detail_course"
+            android:theme="@style/Theme.Academy.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"/>
+        </activity>
+        <activity
+            android:name=".CourseReaderActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
