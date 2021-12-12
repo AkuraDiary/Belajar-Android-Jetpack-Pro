@@ -16,13 +16,13 @@
             android:theme="@style/Theme.Academy.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.academies.HomeActivity"/>
+                android:value="com.example.academies.home.HomeActivity"/>
         </activity>
         <activity
             android:name="com.example.academies.reader.CourseReaderActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.academies.HomeActivity"
+            android:name="com.example.academies.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

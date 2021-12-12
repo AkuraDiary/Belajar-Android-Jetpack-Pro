@@ -1,7 +1,8 @@
-package com.example.academies
+package com.example.academies.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.academies.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
