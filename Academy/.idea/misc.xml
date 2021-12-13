@@ -9,10 +9,16 @@
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/ic_error.xml" value="0.10885416666666667" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/ic_loading.xml" value="0.10885416666666667" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/drawable/ic_share_blue.xml" value="0.10885416666666667" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/activity_course_reader.xml" value="0.18" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/content_detail_course.xml" value="0.16" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_academy.xml" value="0.14719202898550723" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_bookmark.xml" value="0.14719202898550723" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_module_content.xml" value="0.14719202898550723" />
         <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/fragment_module_list.xml" value="0.14719202898550723" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/items_academy.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/items_bookmark.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidJetpackPro/Academy/app/src/main/res/layout/items_module_list.xml" value="0.14130434782608695" />
       </map>
     </option>
   </component>

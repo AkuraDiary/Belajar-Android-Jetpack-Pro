@@ -1,7 +1,6 @@
 package com.example.academies.detail
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,24 +12,20 @@ import com.example.academies.databinding.ActivityDetailCourseBinding
 class DetailCourseActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityDetailCourseBinding
+    private lateinit var activityDetailCourseBinding: ActivityDetailCourseBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailCourseBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        activityDetailCourseBinding = ActivityDetailCourseBinding.inflate(layoutInflater)
+        setContentView(activityDetailCourseBinding.root)
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(activityDetailCourseBinding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_detail_course)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        //val navController = findNavController(R.id.nav_host_fragment_content_detail_course)
+        //appBarConfiguration = AppBarConfiguration(navController.graph)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
