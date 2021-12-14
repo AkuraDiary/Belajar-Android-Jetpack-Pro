@@ -9,4 +9,8 @@ class CourseReaderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_reader)
     }
+
+    companion object {
+        const val EXTRA_COURSE_ID = "extra_course_id"
+    }
 }
