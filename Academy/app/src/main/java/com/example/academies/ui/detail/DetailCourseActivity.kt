@@ -3,6 +3,8 @@ package com.example.academies.ui.detail
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,19 +37,22 @@ class DetailCourseActivity : AppCompatActivity() {
 
         val adapter = DetailCourseAdapter()
 
-        val extras = intent.extras
+        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailCourseViewModel::class.java]
 
+        val extras = intent.extras
         if (extras != null){
             val courseId = extras.getString(EXTRA_COURSE)
             if(courseId != null){
-                val modules = DataDummy.generateDummyModules(courseId)
+                viewModel.setSelectedCourse(courseId)
+                val modules = viewModel.getModules()
                 adapter.setModules(modules)
+                populateCourse(viewModel.getCourse() as CourseEntity)
 
-                for(course in DataDummy.generateDummyCourses()){
+                /*for(course in DataDummy.generateDummyCourses()){
                     if (course.courseId == courseId){
                         populateCourse(course)
                     }
-                }
+                }*/
             }
         }
         with(detailContentBinding.rvModule){
