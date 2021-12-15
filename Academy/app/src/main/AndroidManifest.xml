@@ -12,19 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Academy">
         <activity
-            android:name="com.example.academies.detail.DetailCourseActivity"
+            android:name="com.example.academies.ui.detail.DetailCourseActivity"
             android:exported="false"
             android:label="@string/title_activity_detail_course"
             android:theme="@style/Theme.Academy.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.academies.home.HomeActivity"/>
+                android:value="com.example.academies.ui.home.HomeActivity"/>
         </activity>
         <activity
-            android:name="com.example.academies.reader.CourseReaderActivity"
+            android:name="com.example.academies.ui.reader.CourseReaderActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.academies.home.HomeActivity"
+            android:name="com.example.academies.ui.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

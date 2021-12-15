@@ -1,10 +1,10 @@
-package com.example.academies.reader
+package com.example.academies.ui.reader
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.academies.R
-import com.example.academies.reader.content.ModuleContentFragment
-import com.example.academies.reader.list.ModuleListFragment
+import com.example.academies.ui.reader.content.ModuleContentFragment
+import com.example.academies.ui.reader.list.ModuleListFragment
 
 class CourseReaderActivity : AppCompatActivity(), CourseReaderCallback {
 

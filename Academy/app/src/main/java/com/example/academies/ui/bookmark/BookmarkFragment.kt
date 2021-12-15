@@ -1,4 +1,4 @@
-package com.example.academies.bookmark
+package com.example.academies.ui.bookmark
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.example.academies.reader.list
+package com.example.academies.ui.reader.list
 
 import android.content.Context
 import android.os.Bundle
@@ -8,11 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.academies.R
 import com.example.academies.data.ModuleEntity
 import com.example.academies.databinding.FragmentModuleListBinding
-import com.example.academies.reader.CourseReaderActivity
-import com.example.academies.reader.CourseReaderCallback
+import com.example.academies.ui.reader.CourseReaderActivity
+import com.example.academies.ui.reader.CourseReaderCallback
 import com.example.academies.utils.DataDummy
 
 class ModuleListFragment : Fragment(), MyAdapterClickListener {

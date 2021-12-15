@@ -1,4 +1,4 @@
-package com.example.academies.reader.list
+package com.example.academies.ui.reader.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

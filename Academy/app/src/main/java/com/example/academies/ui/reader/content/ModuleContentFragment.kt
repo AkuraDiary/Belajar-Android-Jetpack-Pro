@@ -1,4 +1,4 @@
-package com.example.academies.reader.content
+package com.example.academies.ui.reader.content
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

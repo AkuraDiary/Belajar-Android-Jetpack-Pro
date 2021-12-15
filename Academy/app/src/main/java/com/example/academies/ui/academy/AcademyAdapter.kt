@@ -1,4 +1,4 @@
-package com.example.academies.academy
+package com.example.academies.ui.academy
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.academies.R
 import com.example.academies.data.CourseEntity
 import com.example.academies.databinding.ItemsAcademyBinding
-import com.example.academies.detail.DetailCourseActivity
+import com.example.academies.ui.detail.DetailCourseActivity
 
 class AcademyAdapter : RecyclerView.Adapter<AcademyAdapter.CourseViewHolder>(){
     private var listCourses = ArrayList<CourseEntity>()
@@ -18,7 +18,7 @@ class AcademyAdapter : RecyclerView.Adapter<AcademyAdapter.CourseViewHolder>(){
         fun bind(course:CourseEntity){
             with(binding){
                 tvItemTitle.text = course.title
-                tvItemDate.text = itemView.resources.getString(R.string.deadline_date)
+                tvItemDate.text = itemView.resources.getString(R.string.deadline_date, course.deadline)
                 itemView.setOnClickListener{
                     val intent = Intent(itemView.context, DetailCourseActivity::class.java)
                     intent.putExtra(DetailCourseActivity.EXTRA_COURSE, course.courseId)

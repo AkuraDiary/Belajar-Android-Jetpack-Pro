@@ -1,4 +1,4 @@
-package com.example.academies.detail
+package com.example.academies.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.example.academies.R
 import com.example.academies.data.CourseEntity
 import com.example.academies.databinding.ActivityDetailCourseBinding
 import com.example.academies.databinding.ContentDetailCourseBinding
-import com.example.academies.reader.CourseReaderActivity
+import com.example.academies.ui.reader.CourseReaderActivity
 import com.example.academies.utils.DataDummy
 
 class DetailCourseActivity : AppCompatActivity() {
@@ -63,7 +63,7 @@ class DetailCourseActivity : AppCompatActivity() {
     private fun populateCourse(courseEntity: CourseEntity){
         detailContentBinding.textTitle.text = courseEntity.title
         detailContentBinding.textDescription.text = courseEntity.description
-        detailContentBinding.textDate.text = resources.getString(R.string.deadline_date)
+        detailContentBinding.textDate.text = resources.getString(R.string.deadline_date, courseEntity.deadline)
 
         Glide.with(this)
             .load(courseEntity.imagePath)

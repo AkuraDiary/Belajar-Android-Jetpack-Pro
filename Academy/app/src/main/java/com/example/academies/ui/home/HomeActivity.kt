@@ -1,8 +1,7 @@
-package com.example.academies.home
+package com.example.academies.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.academies.R
 import com.example.academies.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

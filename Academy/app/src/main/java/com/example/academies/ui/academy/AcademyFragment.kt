@@ -1,13 +1,11 @@
-package com.example.academies.academy
+package com.example.academies.ui.academy
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.academies.R
 import com.example.academies.databinding.FragmentAcademyBinding
 import com.example.academies.utils.DataDummy
 

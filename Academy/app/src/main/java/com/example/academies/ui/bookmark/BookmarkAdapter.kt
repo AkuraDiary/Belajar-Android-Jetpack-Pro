@@ -1,4 +1,4 @@
-package com.example.academies.bookmark
+package com.example.academies.ui.bookmark
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.academies.R
 import com.example.academies.data.CourseEntity
 import com.example.academies.databinding.ItemsBookmarkBinding
-import com.example.academies.detail.DetailCourseActivity
+import com.example.academies.ui.detail.DetailCourseActivity
 
 class BookmarkAdapter(private val callback: BookmarkFragmentCallback) : RecyclerView.Adapter<BookmarkAdapter.CourseViewHolder>(){
     private val listCourses = ArrayList<CourseEntity>()
@@ -38,7 +38,7 @@ class BookmarkAdapter(private val callback: BookmarkFragmentCallback) : Recycler
         fun bind(course:CourseEntity){
             with(binding){
                 tvItemTitle.text = course.title
-                tvItemDate.text = itemView.resources.getString(R.string.deadline_date)
+                tvItemDate.text = itemView.resources.getString(R.string.deadline_date, course.deadline)
                 itemView.setOnClickListener{
                     val intent = Intent(itemView.context, DetailCourseActivity::class.java)
                     intent.putExtra(DetailCourseActivity.EXTRA_COURSE, course.courseId)
