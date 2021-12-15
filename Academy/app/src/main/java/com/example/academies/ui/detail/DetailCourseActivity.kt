@@ -3,7 +3,6 @@ package com.example.academies.ui.detail
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,7 +15,6 @@ import com.example.academies.data.CourseEntity
 import com.example.academies.databinding.ActivityDetailCourseBinding
 import com.example.academies.databinding.ContentDetailCourseBinding
 import com.example.academies.ui.reader.CourseReaderActivity
-import com.example.academies.utils.DataDummy
 
 class DetailCourseActivity : AppCompatActivity() {
 
