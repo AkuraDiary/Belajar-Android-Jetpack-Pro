@@ -52,7 +52,8 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation 'androidx.viewpager:viewpager:1.0.0'
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
-    implementation "com.victor:lib:$victorVersion"
+
+    implementation "com.victor:lib:$victorVersion"//rotate loading
 
     //Architecture Components dependencies
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
