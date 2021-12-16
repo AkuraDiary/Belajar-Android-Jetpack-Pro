@@ -1,4 +1,4 @@
-package com.example.submission1bajpdicoding.ui
+package com.example.submission1bajpdicoding.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

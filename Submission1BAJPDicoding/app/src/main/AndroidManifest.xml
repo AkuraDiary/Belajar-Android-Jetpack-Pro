@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Submission1BAJPDicoding"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".ui.DetailsActivity"
+            android:name=".ui.activities.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Splashscreen"
+            android:name=".ui.activities.Splashscreen"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

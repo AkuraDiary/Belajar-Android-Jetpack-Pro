@@ -1,4 +1,4 @@
-package com.example.submission1bajpdicoding.ui
+package com.example.submission1bajpdicoding.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
