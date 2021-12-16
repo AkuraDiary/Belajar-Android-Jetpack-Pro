@@ -9,4 +9,6 @@
     <string name="text_score">score</string>
     <string name="overview">Overview</string>
     <string name="text_overview">ini overview</string>
+    <string name="text_tv_show">TV Shows</string>
+    <string name="text_movie">Movies</string>
 </resources>
