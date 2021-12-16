@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Submission1BAJPDicoding"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".DetailsActivity"
+            android:name=".ui.DetailsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.Splashscreen"
