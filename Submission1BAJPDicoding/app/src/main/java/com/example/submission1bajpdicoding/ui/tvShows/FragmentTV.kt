@@ -1,4 +1,6 @@
 package com.example.submission1bajpdicoding.ui.tvShows
 
-class FragmentTV {
+import androidx.fragment.app.Fragment
+
+class FragmentTV : Fragment(){
 }
