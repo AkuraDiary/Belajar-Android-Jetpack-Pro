@@ -15,7 +15,7 @@ class Splashscreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bindingSplash = ActivitySplashscreenBinding.inflate(layoutInflater)
         setContentView(bindingSplash.root)
-
+        supportActionBar?.hide() //hiding the action bar
         val background = object :Thread(){
             override fun run() {
                 try {
