@@ -4,19 +4,22 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.submission1bajpdicoding.R
 import com.example.submission1bajpdicoding.models.Items
 import com.example.submission1bajpdicoding.ui.movies.FragmentMovie.Companion.EXTRA_CLICK_M
 import com.example.submission1bajpdicoding.ui.movies.MovieViewModel
 import com.example.submission1bajpdicoding.ui.tvShows.FragmentTV.Companion.EXTRA_CLICK_TV
 import com.example.submission1bajpdicoding.ui.tvShows.TvViewModel
+import com.example.submission1bajpdicoding.utilities.DetailsDataBinding
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import kotlinx.android.synthetic.main.activity_details.*
 
-class DetailsActivity : AppCompatActivity() {
+class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
     private lateinit var collapsingToolbarLayout: CollapsingToolbarLayout
 
@@ -37,8 +40,19 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setBinding(items: Items) {
+    override fun setBinding(items: Items) {
+        multipleGlide(poster_big_placeholder, poster_small_placeholder, items)
+        cv_tv_title.text = items.judul
+        cv_tv_release.text = items.waktuRelease
+        cv_tv_duration.text = items.durasi
+        cv_tv_genre.text = items.genre
+        cv_tv_score.text = items.score
+        isi_overview.text = items.sinopsis
+    }
 
+    override fun multipleGlide(firstImage: ImageView, secondImage: ImageView, items: Items) {
+        Glide.with(this).load(items.poster).into(firstImage)
+        Glide.with(this).load(items.poster).into(secondImage)
     }
 
     private fun collapseToolbarConfiguration(){
