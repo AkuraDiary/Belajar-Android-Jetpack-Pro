@@ -5,5 +5,12 @@ import com.example.submission1bajpdicoding.models.Items
 import com.example.submission1bajpdicoding.utilities.DataDummy
 
 class TvViewModel: ViewModel() {
+    fun getTVShows() {//: List<Items>{
+        return DataDummy.getTVShow()
+    }
+
+    fun getDetailTV(id : Int){//:Items?{
+        DataDummy.tvShowDetails(id)
+    }
 
 }

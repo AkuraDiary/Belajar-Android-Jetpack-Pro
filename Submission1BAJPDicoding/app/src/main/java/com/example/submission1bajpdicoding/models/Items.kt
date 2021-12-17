@@ -11,6 +11,6 @@ data class Items(
     var genre: String? = null,
     var durasi: String? = null,
     var score: String? = null,
-    var overview: String? = null,
+    var sinopsis: String? = null,
     var poster: Int? = 0
 ): Parcelable
