@@ -170,7 +170,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="@android:color/white"
-                            android:fontFamily="@font/Mohave"
+                            android:fontFamily="@font/mohave"
                             android:gravity="center"
                             android:textSize="18sp"
                             tools:text="@string/text_score"/>
@@ -202,7 +202,7 @@
                         android:text="@string/overview"
                         android:textColor="@android:color/black"
                         android:textAlignment="center"
-                        android:fontFamily="@font/Mohave"
+                        android:fontFamily="@font/mohave"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
