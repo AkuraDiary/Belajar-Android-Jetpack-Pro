@@ -5,7 +5,7 @@ import com.example.submission1bajpdicoding.models.Items
 
 object DataDummy {
     private val listOfMovies = ArrayList<Items>()
-    val listOfTV = ArrayList<Items>()
+    private val listOfTV = ArrayList<Items>()
 
     fun getMovie(): ArrayList<Items> {
 
@@ -184,8 +184,8 @@ object DataDummy {
         return listOfMovies
     }
 
-    fun movieDetails(id:Int){
-        getMovie()[id]
+    fun movieDetails(id:Int) :Items{
+        return getMovie()[id]
     }
 
     fun getTVShow():ArrayList<Items>{
@@ -369,8 +369,9 @@ object DataDummy {
 
         return listOfTV
     }
-    fun tvShowDetails(id:Int){
-        TODO("Not yet Implemented")
+
+    fun tvShowDetails(id:Int) : Items{
+        return getTVShow()[id]
     }
 
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.submission1bajpdicoding.R
+import com.example.submission1bajpdicoding.ui.adapter.KatalogAdapter
 
 class FragmentMovie : Fragment() {
 
@@ -26,6 +27,8 @@ class FragmentMovie : Fragment() {
         val moviesViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
 
         val movies = moviesViewModel.getMovies()
+
+        val adapter = KatalogAdapter(EXTRA_CLICK_M)
 
     }
 
