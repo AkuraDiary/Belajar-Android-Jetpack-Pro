@@ -57,6 +57,10 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
     private fun collapseToolbarConfiguration(){
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbar)
+
+        detail_toolbar.setNavigationIcon(R.drawable.ic_back)
+        detail_toolbar.setNavigationOnClickListener { onBackPressed() }
+
         AppBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
             if (collapsingToolbarLayout.height + verticalOffset < 2 * ViewCompat.getMinimumHeight(collapsingToolbarLayout)){
                 collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
@@ -73,8 +77,6 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
                 cv_tv_title.visibility = View.VISIBLE
             }
         })
-        detail_toolbar.setNavigationIcon(R.drawable.ic_back)
-        detail_toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
     companion object{

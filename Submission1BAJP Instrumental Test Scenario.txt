@@ -1,0 +1,21 @@
+1. Menampilkan data movie dan tv show
+    memastikan list movie berhasil ditampilkan
+    scroll list ke posisi terakhir dan kembali ke atas
+    memastikan bisa berpindah ke tab tv
+    memastikan list tv berhasil ditampilkan
+    scroll list ke poisi terakhir dan kembali ke atas
+
+2. Menampilkan data detail movie
+    memastikan list movie berhasil ditampilkan
+    memilih item pertama di list
+    scroll ke bawah
+    memastikan data yang ditampilkan benar
+    memastikan dapat kembali ke daftar list
+
+3. Menampilkan data detail tv show
+    memastikan bisa berpindah ke tab tv
+    memastikan list tv shows berhasil ditampilkan
+    memilih item pertama di list
+    scroll ke bawah
+    memastikan data yang ditampilkan benar
+    memastikan dapat kembali ke daftar list

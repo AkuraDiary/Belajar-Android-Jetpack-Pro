@@ -68,6 +68,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/detail_page"
         android:clipToPadding="false"
         android:background="@color/dark_blue"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -86,23 +87,23 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:background="@color/dark_blue">
-
-                <TextView
-                    android:id="@+id/cv_tv_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:textAlignment="center"
-                    android:textSize="22sp"
                     android:background="@color/dark_blue"
-                    android:textColor="@android:color/white"
-                    android:fontFamily="@font/poppins_bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/text_title"/>
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/cv_tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@color/dark_blue"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="22sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/text_title" />
 
                     <View
                         android:id="@+id/views"
@@ -110,9 +111,9 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/dark_blue"
-                        app:layout_constraintTop_toBottomOf="@id/cv_tv_title"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/cv_tv_title" />
 
                     <TextView
                         android:id="@+id/cv_tv_release"
@@ -121,9 +122,9 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/white"
                         android:fontFamily="serif-monospace"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_date"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cv_tv_title"
@@ -133,32 +134,32 @@
                         android:id="@+id/cv_tv_duration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/white"
                         android:fontFamily="serif-monospace"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_time"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cv_tv_release"
-                        tools:text="@string/text_duration"/>
+                        tools:text="@string/text_duration" />
 
                     <TextView
-                    android:id="@+id/cv_tv_genre"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/white"
-                    android:fontFamily="serif-monospace"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cv_tv_duration"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:drawableStartCompat="@drawable/ic_movie"
-                    tools:text="@string/text_genre"/>
+                        android:id="@+id/cv_tv_genre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="serif-monospace"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        app:drawableStartCompat="@drawable/ic_movie"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cv_tv_duration"
+                        tools:text="@string/text_genre" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="84dp"
@@ -166,22 +167,22 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="4dp"
-                        app:cardCornerRadius="42dp"
                         app:cardBackgroundColor="@color/teal_200"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cv_tv_genre"
+                        app:cardCornerRadius="42dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cv_tv_genre">
 
                         <TextView
                             android:id="@+id/cv_tv_score"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@android:color/white"
                             android:fontFamily="@font/mohave"
                             android:gravity="center"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            tools:text="@string/text_score"/>
+                            tools:text="@string/text_score" />
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
