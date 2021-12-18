@@ -44,7 +44,6 @@ class MainActivityTest{
         onView(withId(R.id.rv_movie_placeholder))
             .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 
-        //onView(withId(R.id.poster_big_placeholder)).perform(ViewActions.swipeUp())
         swipeUp()
 
         onView(withId(R.id.cv_tv_title)).apply {
@@ -68,7 +67,40 @@ class MainActivityTest{
             check(matches(withText(dataMovies[0].score)))
         }
 
-        //onView(allOf(withId(R.id.title_overview), withText("Sinopsis") )).perform(swipeDown())
+        swipeDown()
+
+        onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
+    }
+
+    @Test
+    fun loadDetailTV(){
+        onView(withId(R.id.rv_movie_placeholder)).perform(swipeLeft())
+        onView(withId(R.id.rv_TV_placeholder))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        swipeUp()
+
+        onView(withId(R.id.cv_tv_title)).apply {
+            check(matches(isDisplayed()))
+            check(matches(withText(dataTV[0].judul)))
+        }
+        onView(withId(R.id.cv_tv_release)).apply {
+            check(matches(isDisplayed()))
+            check(matches(withText(dataTV[0].waktuRelease)))
+        }
+        onView(withId(R.id.cv_tv_genre)).apply {
+            check(matches(isDisplayed()))
+            check(matches(withText(dataTV[0].genre)))
+        }
+        onView(withId(R.id.cv_tv_duration)).apply {
+            check(matches(isDisplayed()))
+            check(matches(withText(dataTV[0].durasi)))
+        }
+        onView(withId(R.id.cv_tv_score)).apply {
+            check(matches(isDisplayed()))
+            check(matches(withText(dataTV[0].score)))
+        }
+
         swipeDown()
 
         onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
