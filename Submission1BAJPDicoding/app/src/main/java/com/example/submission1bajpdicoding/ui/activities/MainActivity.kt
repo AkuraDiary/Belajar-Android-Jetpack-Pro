@@ -1,13 +1,11 @@
 package com.example.submission1bajpdicoding.ui.activities
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.submission1bajpdicoding.R
-import com.example.submission1bajpdicoding.databinding.ActivityMainBinding
 import com.example.submission1bajpdicoding.utilities.PagerSectionAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.list_item_layout.view.*
 
 class MainActivity : AppCompatActivity() {
 
