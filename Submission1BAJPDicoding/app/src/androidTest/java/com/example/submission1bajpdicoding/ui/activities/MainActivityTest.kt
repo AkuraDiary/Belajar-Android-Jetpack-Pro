@@ -1,7 +1,5 @@
 package com.example.submission1bajpdicoding.ui.activities
 
-import android.os.SystemClock.sleep
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
@@ -12,7 +10,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.example.submission1bajpdicoding.R
 import com.example.submission1bajpdicoding.utilities.DataDummy
-import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test
 
