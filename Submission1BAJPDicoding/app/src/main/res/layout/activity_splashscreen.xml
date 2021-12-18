@@ -4,16 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.Splashscreen">
+    tools:context=".ui.activities.Splashscreen"
+    android:background="@color/dark_blue">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="290dp"
         android:layout_gravity="center"
-        android:text="@string/dummy_splashscreen_text"
-        android:textColor="@color/purple_700"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:src="@drawable/movie_icon"/>
 
 </LinearLayout>

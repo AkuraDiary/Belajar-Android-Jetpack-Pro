@@ -8,7 +8,6 @@ import com.example.submission1bajpdicoding.utilities.PagerSectionAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,4 +22,4 @@ class MainActivity : AppCompatActivity() {
 
         main_tabs.setupWithViewPager(main_viewPager)
     }
-}
+} 
