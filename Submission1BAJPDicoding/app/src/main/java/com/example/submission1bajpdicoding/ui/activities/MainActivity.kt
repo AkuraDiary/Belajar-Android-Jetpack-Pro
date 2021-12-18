@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-
+        supportActionBar?.hide()
         val pagerSectionAdapter = PagerSectionAdapter(this, supportFragmentManager)
         main_toolbar.title = getString(R.string.app_name)
         main_viewPager.adapter = pagerSectionAdapter

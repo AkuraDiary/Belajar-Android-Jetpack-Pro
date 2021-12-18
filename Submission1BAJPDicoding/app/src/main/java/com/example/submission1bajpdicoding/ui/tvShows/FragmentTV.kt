@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission1bajpdicoding.R
+import com.example.submission1bajpdicoding.ui.adapter.KatalogAdapter
+import kotlinx.android.synthetic.main.fragment_tv.*
 
 class FragmentTV : Fragment(){
 
@@ -27,6 +30,16 @@ class FragmentTV : Fragment(){
 
         if (activity != null){
             val TvShowVM = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]
+
+            val TvShows = TvShowVM.getTVShows()
+            val adapter = KatalogAdapter(EXTRA_CLICK_TV)
+            adapter.setAll(TvShows)
+
+            rv_TV_placeholder.apply {
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                this.adapter = adapter
+            }
 
         }
     }

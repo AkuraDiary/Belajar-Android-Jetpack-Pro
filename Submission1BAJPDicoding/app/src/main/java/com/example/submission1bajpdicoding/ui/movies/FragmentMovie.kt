@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission1bajpdicoding.R
 import com.example.submission1bajpdicoding.ui.adapter.KatalogAdapter
+import kotlinx.android.synthetic.main.fragment_movie.*
 
 class FragmentMovie : Fragment() {
 
@@ -26,10 +28,18 @@ class FragmentMovie : Fragment() {
 
         val moviesViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
 
-        val movies = moviesViewModel.getMovies()
+        if (activity != null){
+            val movies = moviesViewModel.getMovies()
 
-        val adapter = KatalogAdapter(EXTRA_CLICK_M)
+            val adapter = KatalogAdapter(EXTRA_CLICK_M)
+            adapter.setAll(movies)
 
+            rv_movie_placeholder.apply {
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                this.adapter = adapter
+            }
+        }
     }
 
     companion object{
