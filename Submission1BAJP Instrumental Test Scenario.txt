@@ -17,3 +17,9 @@
     memilih item pertama di list
     memastikan data yang ditampilkan benar
     memastikan dapat kembali ke daftar list
+
+4. Memastikan aplikasi tetap bisa berjalan saat melakukan rotasi
+    melakukan rotasi ke landscape
+    melakukan test pertama
+    melakukan tes ke 2 & ke 3
+    memastikan dapat melakukan rotasi kembali

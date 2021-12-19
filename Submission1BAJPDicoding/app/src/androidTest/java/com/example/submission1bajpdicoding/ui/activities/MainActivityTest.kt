@@ -1,5 +1,6 @@
 package com.example.submission1bajpdicoding.ui.activities
 
+import android.content.pm.ActivityInfo
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
@@ -20,7 +21,6 @@ class MainActivityTest{
     @get:Rule
     var activity = ActivityTestRule(MainActivity::class.java)
 
-    @Test
     fun loadMovieAndTvData(){
         onView(withId(R.id.rv_movie_placeholder)).apply {
             check(matches(isDisplayed()))
@@ -36,7 +36,6 @@ class MainActivityTest{
         }
     }
 
-    @Test
     fun loadDetailMovie(){
         onView(withId(R.id.rv_movie_placeholder))
             .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
@@ -69,7 +68,6 @@ class MainActivityTest{
         onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
     }
 
-    @Test
     fun loadDetailTV(){
         onView(withId(R.id.rv_movie_placeholder)).perform(swipeLeft())
         onView(withId(R.id.rv_TV_placeholder))
@@ -103,4 +101,38 @@ class MainActivityTest{
         onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
     }
 
+    fun tesRotasi(){
+
+        activity.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+
+        loadMovieAndTvData()
+        onView(withId(R.id.rv_TV_placeholder)).apply {
+            perform(swipeUp())
+            perform(swipeRight())
+        }
+        loadDetailMovie()
+        loadDetailTV()
+        activity.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
+
+
+    @Test
+    fun test1(){
+        loadMovieAndTvData()
+    }
+
+    @Test
+    fun test2(){
+        loadDetailMovie()
+    }
+
+    @Test
+    fun test3(){
+        loadDetailTV()
+    }
+
+    @Test
+    fun test4(){
+        tesRotasi()
+    }
 }
