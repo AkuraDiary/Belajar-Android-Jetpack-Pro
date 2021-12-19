@@ -3,7 +3,6 @@ package com.example.submission1bajpdicoding.ui.activities
 import android.content.pm.ActivityInfo
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -24,15 +23,15 @@ class MainActivityTest{
     fun loadMovieAndTvData(){
         onView(withId(R.id.rv_movie_placeholder)).apply {
             check(matches(isDisplayed()))
-            perform(ViewActions.swipeUp())
-            perform(ViewActions.swipeDown())
-            perform(ViewActions.swipeLeft())//geser
+            perform(swipeUp())
+            perform(swipeDown())
+            perform(swipeLeft())//geser
         }
 
         onView(withId(R.id.rv_TV_placeholder)).apply {
             check(matches(isDisplayed()))
-            perform(ViewActions.swipeUp())
-            perform(ViewActions.swipeDown())
+            perform(swipeUp())
+            perform(swipeDown())
         }
     }
 
