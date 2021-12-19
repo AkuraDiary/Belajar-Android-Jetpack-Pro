@@ -21,12 +21,11 @@ class FragmentTV : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_tv, container, false)
-        //return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TvViewModel::class.java)
+        viewModel = ViewModelProvider(this)[TvViewModel::class.java]
 
         if (activity != null){
             val TvShowVM = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]

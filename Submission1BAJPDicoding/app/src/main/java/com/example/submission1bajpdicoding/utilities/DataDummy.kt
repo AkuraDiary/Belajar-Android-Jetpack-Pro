@@ -4,8 +4,6 @@ import com.example.submission1bajpdicoding.R
 import com.example.submission1bajpdicoding.models.Items
 
 object DataDummy {
-    //private val listOfMovies = ArrayList<Items>()
-    //private val listOfTV = ArrayList<Items>()
 
     fun getMovie(): ArrayList<Items> {
         val listOfMovies = ArrayList<Items>()
