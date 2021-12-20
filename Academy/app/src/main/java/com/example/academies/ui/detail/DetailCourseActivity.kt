@@ -15,6 +15,7 @@ import com.example.academies.data.CourseEntity
 import com.example.academies.databinding.ActivityDetailCourseBinding
 import com.example.academies.databinding.ContentDetailCourseBinding
 import com.example.academies.ui.reader.CourseReaderActivity
+import com.example.academies.viewmodel.ViewModelFactory
 
 class DetailCourseActivity : AppCompatActivity() {
 
@@ -34,8 +35,8 @@ class DetailCourseActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val adapter = DetailCourseAdapter()
-
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailCourseViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailCourseViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null){
