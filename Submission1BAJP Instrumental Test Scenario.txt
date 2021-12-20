@@ -1,25 +1,26 @@
-1. Menampilkan data movie dan tv show
-    memastikan list movie berhasil ditampilkan
-    memastikan dapat scroll list ke posisi terakhir dan kembali ke atas
-    memastikan bisa berpindah ke tab tv
-    memastikan list tv berhasil ditampilkan
-    memastikan scroll list ke poisi terakhir dan kembali ke atas
+1. Pengujian menampilkan data movie dan tv show
+    memastikan rv_movie_placeholder berhasil ditampilkan
+    memastikan dapat melakukan scroll list ke posisi terakhir dan kembali ke atas pada rv_movie_placeholder
+    memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
+    memastikan rv_TV_placeholder berhasil ditampilkan
+    memastikan dapat melakukan scroll list ke poisi terakhir dan kembali ke atas pada rv_TV_placeholder
 
-2. Menampilkan data detail movie
-    memastikan list movie berhasil ditampilkan
-    memilih item pertama di list
-    memastikan data yang ditampilkan benar
-    memastikan dapat kembali ke daftar list
+2. Pengujian menampilkan data detail movie
+    memastikan rv_movie_placeholder berhasil ditampilkan
+    memilih item pertama di rv_movie_placeholder
+    memastikan data yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataMovies index ke 0
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali
 
-3. Menampilkan data detail tv show
-    memastikan bisa berpindah ke tab tv
-    memastikan list tv shows berhasil ditampilkan
-    memilih item pertama di list
-    memastikan data yang ditampilkan benar
-    memastikan dapat kembali ke daftar list
+3. Pengujian menampilkan data detail tv show
+    memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
+    memastikan rv_TV_placeholder shows berhasil ditampilkan
+    memilih item pertama di rv_TV_placeholder
+    memastikan data yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataTV index ke 0
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali
 
-4. Memastikan aplikasi tetap bisa berjalan saat melakukan rotasi
+4. Pengujian memastikan aplikasi tetap bisa berjalan saat melakukan rotasi
     melakukan rotasi ke landscape
-    melakukan test pertama
-    melakukan tes ke 2 & ke 3
-    memastikan dapat melakukan rotasi kembali
+    melakukan test pada nomor 1
+    melakukan test pada nomor 2
+    melakukan test pada nomor 3
+    memastikan dapat melakukan rotasi kembali ke potrait
