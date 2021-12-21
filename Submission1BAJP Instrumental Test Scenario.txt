@@ -8,14 +8,22 @@
 2. Pengujian menampilkan data detail movie
     memastikan rv_movie_placeholder berhasil ditampilkan
     memilih item pertama di rv_movie_placeholder
-    memastikan data yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataMovies index ke 0
+    memastikan data di cv_tv_title yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataMovies.judul index ke 0
+    memastikan data di cv_tv_release yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataMovies.waktuRelease index ke 0
+    memastikan data di cv_tv_genre yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataMovies.genre index ke 0
+    memastikan data di cv_tv_duration yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataMovies.durasi index ke 0
+    memastikan data di cv_tv_score yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataMovies.score index ke 0
     memastikan dapat kembali ke daftar list dengan menekan tombol kembali
 
 3. Pengujian menampilkan data detail tv show
     memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
     memastikan rv_TV_placeholder shows berhasil ditampilkan
     memilih item pertama di rv_TV_placeholder
-    memastikan data yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataTV index ke 0
+    memastikan data di cv_tv_title yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataTV.judul index ke 0
+    memastikan data di cv_tv_release yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataTV.waktuRelease index ke 0
+    memastikan data di cv_tv_genre yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataTV.genre index ke 0
+    memastikan data di cv_tv_duration yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataTV.durasi index ke 0
+    memastikan data di cv_tv_score yang ditampilkan benar dengan mengecek semua textview yang ditampilkan sesuai dengan dataTV.score index ke 0
     memastikan dapat kembali ke daftar list dengan menekan tombol kembali
 
 4. Pengujian memastikan aplikasi tetap bisa berjalan saat melakukan rotasi

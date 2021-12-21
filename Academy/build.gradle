@@ -19,7 +19,7 @@ task clean(type: Delete) {
 
 ext{
     //dependencies version
-    kotlin_version = '1.6.0'
+    //kotlin_version = '1.6.10'
     appCompatVersion = '1.4.0'
     coreVersion = '1.7.0'
     constraintLayoutVersion = '2.1.2'
@@ -31,4 +31,6 @@ ext{
     materialVersion = '1.4.0'
     recyclerViewVersion = '1.2.1'
     glideVersion = '4.11.0'
+
+    mockitoVersion = '3.6.0'
 }
