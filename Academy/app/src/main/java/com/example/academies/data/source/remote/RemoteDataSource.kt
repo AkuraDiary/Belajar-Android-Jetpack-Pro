@@ -11,22 +11,16 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
 
     private val handler = Handler(Looper.getMainLooper())
 
-    //fun getAllCourses(): List<CourseResponse> = jsonHelper.loadCourses()
-
-    //fun getModules(courseId: String): List<ModuleResponse> = jsonHelper.loadModule(courseId)
-
-    //fun getContent(moduleId: String): ContentResponse = jsonHelper.loadContent(moduleId)
-
     fun getAllCourses(callback: LoadCoursesCallback){
         handler.postDelayed({callback.onAllCoursesReceived(jsonHelper.loadCourses())}, SERVICE_LATENCY_IN_MILIS)
     }
 
     fun getModules(courseId: String, callback : LoadModulesCallback){
-        handler.postDelayed({callback.onAllModulesReceived(jsonHelper.loadModule())}, SERVICE_LATENCY_IN_MILIS)
+        handler.postDelayed({callback.onAllModulesReceived(jsonHelper.loadModule(courseId))}, SERVICE_LATENCY_IN_MILIS)
     }
 
     fun getContent(moduleId : String, callback:LoadContentCallback){
-        handler.postDelayed({callback.onContentReceived(jsonHelper.loadContent())}, SERVICE_LATENCY_IN_MILIS)
+        handler.postDelayed({callback.onContentReceived(jsonHelper.loadContent(moduleId))}, SERVICE_LATENCY_IN_MILIS)
     }
 
     interface LoadCoursesCallback{
