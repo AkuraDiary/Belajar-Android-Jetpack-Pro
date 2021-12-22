@@ -108,12 +108,12 @@ class FakeAcademyRepository(private val remoteDataSource: RemoteDataSource) : Ac
             override fun onAllModulesReceived(moduleResponse: List<ModuleResponse>) {
                 val module: ModuleEntity
                 for (i in moduleResponse.indices) {
-                    val moduleResponse = moduleResponse[i]
+                    val moduleResponses = moduleResponse[i]
 
-                    val id = moduleResponse.moduleId
+                    val id = moduleResponses.moduleId
 
                     if (id == moduleId) {
-                        module = ModuleEntity(id, moduleResponse.courseId, moduleResponse.title, moduleResponse.position, false)
+                        module = ModuleEntity(id, moduleResponses.courseId, moduleResponses.title, moduleResponses.position, false)
 
                         remoteDataSource.getContent(moduleId, object : RemoteDataSource.LoadContentCallback {
                             override fun onContentReceived(contentResponse: ContentResponse) {
