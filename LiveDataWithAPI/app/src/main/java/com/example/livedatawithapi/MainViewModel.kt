@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.CustomerReviewsItem
+import com.PostReviewResponse
 import com.Restaurant
 import com.RestaurantResponse
 import retrofit2.Call
@@ -42,6 +43,29 @@ class MainViewModel : ViewModel() {
                 }
             }
             override fun onFailure(call: Call<RestaurantResponse>, t:Throwable){
+                _isLoading.value = false
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+    }
+
+    fun postReview(review:String){
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().postReview(RESTAURANT_ID, "Dicoding", review)
+        client.enqueue(object : Callback<PostReviewResponse>{
+            override fun onResponse(
+                call: Call<PostReviewResponse>,
+                response: Response<PostReviewResponse>
+            ) {
+                _isLoading.value = false
+                if (response.isSuccessful){
+                    _listReview.value = response.body()?.customerReviews
+                }else{
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<PostReviewResponse>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
