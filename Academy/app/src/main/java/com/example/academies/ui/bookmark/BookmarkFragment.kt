@@ -14,7 +14,7 @@ import com.example.academies.databinding.FragmentBookmarkBinding
 import com.example.academies.viewmodel.ViewModelFactory
 
 class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
-    lateinit var fragmentBookmarkBinding: FragmentBookmarkBinding
+    private lateinit var fragmentBookmarkBinding: FragmentBookmarkBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,10 +33,17 @@ class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
             val factory = ViewModelFactory.getInstance(requireActivity())
 
             val viewModel = ViewModelProvider(this, factory)[BookmarkViewModel::class.java]
-            val courses = viewModel.getBookmarks()
+            //val courses = viewModel.getBookmarks()
 
             val adapter = BookmarkAdapter(this)
-            adapter.setCourse(courses)
+            //adapter.setCourse(courses)
+
+            fragmentBookmarkBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getBookmarks().observe(viewLifecycleOwner, {courses ->
+                fragmentBookmarkBinding.progressBar.visibility = View.GONE
+                adapter.setCourse(courses)
+                adapter.notifyDataSetChanged()
+            })
 
             with(fragmentBookmarkBinding.rvBookmark){
                 layoutManager = LinearLayoutManager(context)

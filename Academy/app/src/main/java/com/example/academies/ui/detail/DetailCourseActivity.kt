@@ -2,6 +2,7 @@ package com.example.academies.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.ui.AppBarConfiguration
@@ -42,16 +43,18 @@ class DetailCourseActivity : AppCompatActivity() {
         if (extras != null){
             val courseId = extras.getString(EXTRA_COURSE)
             if(courseId != null){
-                viewModel.setSelectedCourse(courseId)
-                val modules = viewModel.getModules()
-                adapter.setModules(modules)
-                populateCourse(viewModel.getCourse() as CourseEntity)
+                activityDetailCourseBinding.progressBar.visibility = View.VISIBLE
+                activityDetailCourseBinding.detailContent.content.visibility = View.INVISIBLE
 
-                /*for(course in DataDummy.generateDummyCourses()){
-                    if (course.courseId == courseId){
-                        populateCourse(course)
-                    }
-                }*/
+                viewModel.setSelectedCourse(courseId)
+                viewModel.getModules().observe(this, { modules ->
+                    activityDetailCourseBinding.progressBar.visibility = View.GONE
+                    activityDetailCourseBinding.detailContent.content.visibility = View.GONE
+                    adapter.setModules(modules)
+                    adapter.notifyDataSetChanged()
+                })
+                viewModel.getCourse().observe(this, { course -> populateCourse(course) })
+
             }
         }
         with(detailContentBinding.rvModule){
