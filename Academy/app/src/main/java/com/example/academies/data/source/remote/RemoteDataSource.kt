@@ -24,15 +24,15 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
     }
 
     interface LoadCoursesCallback{
-        fun onAllCoursesReceived(courseResponse: List<CourseResponse>)
+        fun onAllCoursesReceived(courseResponses: List<CourseResponse>)
     }
 
     interface LoadModulesCallback{
-        fun onAllModulesReceived(moduleResponse: List<ModuleResponse>)
+        fun onAllModulesReceived(moduleResponses: List<ModuleResponse>)
     }
 
     interface LoadContentCallback{
-        fun onContentReceived(contentResponse: ContentResponse)
+        fun onContentReceived(contentResponses: ContentResponse)
     }
 
     companion object {

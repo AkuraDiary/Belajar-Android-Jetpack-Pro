@@ -9,7 +9,7 @@ import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
 
-class AcademyRepositoryTest {
+/*class AcademyRepositoryTest {
     private val remote = Mockito.mock(RemoteDataSource::class.java)
     private val academyRepository = FakeAcademyRepository(remote)
 
@@ -64,4 +64,4 @@ class AcademyRepositoryTest {
         assertNotNull(resultCourse)
         assertEquals(courseResponses[0].title, resultCourse.title)
     }
-}
+}*/
