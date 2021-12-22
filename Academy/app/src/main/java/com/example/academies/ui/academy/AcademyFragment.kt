@@ -15,33 +15,29 @@ class AcademyFragment : Fragment() {
 
     private lateinit var fragmentAcademyBinding: FragmentAcademyBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         fragmentAcademyBinding = FragmentAcademyBinding.inflate(layoutInflater, container, false)
         return fragmentAcademyBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (activity != null){
+        if (activity != null) {
 
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[AcademyViewModel::class.java]
-            //val courses = viewModel.getCourses()
+
             val academyAdapter = AcademyAdapter()
 
-            //academyAdapter.setCourses(courses)
-
             fragmentAcademyBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getCourses().observe(viewLifecycleOwner, {courses ->
+            viewModel.getCourses().observe(viewLifecycleOwner, { courses ->
                 fragmentAcademyBinding.progressBar.visibility = View.GONE
                 academyAdapter.setCourses(courses)
                 academyAdapter.notifyDataSetChanged()
             })
 
-            with(fragmentAcademyBinding.rvAcademy){
+            with(fragmentAcademyBinding.rvAcademy) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = academyAdapter

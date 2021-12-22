@@ -1,12 +1,11 @@
 package com.example.academies.ui.reader.content
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.academies.data.ContentEntity
 import com.example.academies.data.ModuleEntity
 import com.example.academies.databinding.FragmentModuleContentBinding
 import com.example.academies.ui.reader.CourseReaderViewModel
