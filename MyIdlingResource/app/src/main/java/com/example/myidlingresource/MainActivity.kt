@@ -18,12 +18,29 @@ class MainActivity : AppCompatActivity() {
 
         activityMainBinding.button.setOnClickListener{
             delay1()
+            delay2()
         }
     }
 
     private fun delay1(){
+        EspressoIdlingResource.increment()
         Handler(Looper.getMainLooper()).postDelayed({
             activityMainBinding.textView.text = getString(R.string.delay1)
+            if(!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow){
+                //memberitahukan bahwa task sudah selesai
+                EspressoIdlingResource.decrement()
+            }
         }, 2000)
+    }
+
+    private fun delay2(){
+        EspressoIdlingResource.increment()
+        Handler(Looper.getMainLooper()).postDelayed({
+            activityMainBinding.textView.text = getString(R.string.delay2)
+            if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                //Memberitahukan bahwa tugas sudah selesai dijalankan
+                EspressoIdlingResource.decrement()
+            }
+        }, 3000)
     }
 }
