@@ -1,10 +1,10 @@
-package com.example.submission1bajpdicoding.ui.activities
+package com.example.submission2bajpdicoding.ui.activities
 
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.submission1bajpdicoding.R
-import com.example.submission1bajpdicoding.utilities.PagerSectionAdapter
+import com.example.submission2bajpdicoding.R
+import com.example.submission2bajpdicoding.utilities.PagerSectionAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
