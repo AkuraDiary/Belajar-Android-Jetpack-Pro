@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission2bajpdicoding.R
+import com.example.submission2bajpdicoding.databinding.FragmentTvBinding
 import com.example.submission2bajpdicoding.ui.adapter.KatalogAdapter
-import kotlinx.android.synthetic.main.fragment_tv.*
 
 class FragmentTV : Fragment(){
 
@@ -26,15 +26,15 @@ class FragmentTV : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[TvViewModel::class.java]
-
+        val binding = view?.let { FragmentTvBinding.bind(it) }
         if (activity != null){
-            val TvShowVM = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]
+            val tvShowVM = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]
 
-            val TvShows = TvShowVM.getTVShows()
+            val tvShows = tvShowVM.getTVShows()
             val adapter = KatalogAdapter(EXTRA_CLICK_TV)
-            adapter.setAll(TvShows)
+            adapter.setAll(tvShows)
 
-            rv_TV_placeholder.apply {
+            binding?.rvTVPlaceholder?.apply {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 this.adapter = adapter

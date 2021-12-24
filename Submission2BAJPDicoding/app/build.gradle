@@ -1,7 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
+    //id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
 
@@ -52,7 +53,7 @@ dependencies {
     implementation 'androidx.viewpager:viewpager:1.0.0'
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
 
-    implementation "com.victor:lib:$victorVersion"//rotate loading
+    //implementation "com.victor:lib:$victorVersion"//rotate loading
 
     //Architecture Components dependencies
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"

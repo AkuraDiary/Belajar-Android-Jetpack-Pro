@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission2bajpdicoding.R
+import com.example.submission2bajpdicoding.databinding.FragmentMovieBinding
 import com.example.submission2bajpdicoding.ui.adapter.KatalogAdapter
-import kotlinx.android.synthetic.main.fragment_movie.*
 
 class FragmentMovie : Fragment() {
 
@@ -23,7 +23,7 @@ class FragmentMovie : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        val binding = view?.let { FragmentMovieBinding.bind(it) }
         val moviesViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
 
         if (activity != null){
@@ -32,7 +32,7 @@ class FragmentMovie : Fragment() {
             val adapter = KatalogAdapter(EXTRA_CLICK_M)
             adapter.setAll(movies)
 
-            rv_movie_placeholder.apply {
+            binding?.rvMoviePlaceholder?.apply {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 this.adapter = adapter

@@ -7,19 +7,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.submission2bajpdicoding.R
+import com.example.submission2bajpdicoding.databinding.ListItemLayoutBinding
 import com.example.submission2bajpdicoding.models.Items
 import com.example.submission2bajpdicoding.ui.activities.DetailsActivity
 import com.example.submission2bajpdicoding.ui.activities.DetailsActivity.Companion.CLICK_STATS
 import com.example.submission2bajpdicoding.ui.activities.DetailsActivity.Companion.ID
 import com.example.submission2bajpdicoding.ui.activities.DetailsActivity.Companion.JUDUL
-import kotlinx.android.synthetic.main.list_item_layout.view.*
 
 class KatalogAdapter(private val idAdapter : Int): RecyclerView.Adapter<KatalogAdapter.ListViewHolder>() {
-    private val ItemsList = ArrayList<Items>()
+    private val _itemsList = ArrayList<Items>()
 
     fun setAll(data: List<Items>) {
-        ItemsList.clear()
-        ItemsList.addAll(data)
+        _itemsList.clear()
+        _itemsList.addAll(data)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -29,22 +29,24 @@ class KatalogAdapter(private val idAdapter : Int): RecyclerView.Adapter<KatalogA
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val item = ItemsList[position]
+        val item = _itemsList[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return ItemsList.size
+        return _itemsList.size
     }
 
     inner class ListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val binding = ListItemLayoutBinding.bind(view)
+
         fun bind(items: Items) {
             itemView.apply {
                 Glide.with(itemView)
                     .load(items.poster)
-                    .into(item_image)
-                item_title.text = items.judul
-                item_genre.text = items.genre
+                    .into(binding.itemImage)
+                binding.itemTitle.text = items.judul
+                binding.itemGenre.text = items.genre
                 itemView.setOnClickListener {
                     val intent = Intent(context, DetailsActivity::class.java).apply {
                         putExtra(ID, items.id)
