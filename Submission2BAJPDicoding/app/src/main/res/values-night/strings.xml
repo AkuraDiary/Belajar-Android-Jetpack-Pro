@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Submission1BAJPDicoding</string>
-    <string name="dummy_splashscreen_text">ini splashcreen</string>
+    <string name="app_name">Submission2BAJPDicoding</string>
     <string name="poster">tempat deskripsi poster</string>
     <string name="text_title">Ini Judul</string>
     <string name="text_release">tanggal rilis</string>

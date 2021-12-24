@@ -9,7 +9,7 @@ class TvViewModel: ViewModel() {
         return DataDummy.getTVShow()
     }
 
-    fun getDetailTV(id : Int):Items?{
+    fun getDetailTV(id : Int): Items {
         return DataDummy.tvShowDetails(id)
     }
 

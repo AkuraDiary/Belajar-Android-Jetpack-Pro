@@ -13,8 +13,6 @@ import kotlinx.android.synthetic.main.fragment_movie.*
 
 class FragmentMovie : Fragment() {
 
-    private lateinit var viewModel: MovieViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

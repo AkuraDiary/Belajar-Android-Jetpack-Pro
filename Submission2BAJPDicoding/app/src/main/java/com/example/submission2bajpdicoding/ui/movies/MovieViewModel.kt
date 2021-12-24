@@ -9,7 +9,7 @@ class MovieViewModel : ViewModel(){
         return DataDummy.getMovie()
     }
 
-    fun getDetailMovie(id: Int) : Items?{
+    fun getDetailMovie(id: Int) : Items {
         return DataDummy.movieDetails(id)
     }
 }
