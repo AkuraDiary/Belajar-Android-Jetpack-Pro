@@ -44,13 +44,13 @@ class TvViewModelTest {
     fun getDetailTV() {
         val choosenItems = viewModel.getDetailTV(0)
         assertNotNull(choosenItems)
-        assertEquals(items.id, choosenItems?.id)
-        assertEquals(items.judul, choosenItems?.judul)
-        assertEquals(items.waktuRelease, choosenItems?.waktuRelease)
-        assertEquals(items.genre, choosenItems?.genre)
-        assertEquals(items.durasi, choosenItems?.durasi)
-        assertEquals(items.score, choosenItems?.score)
-        assertEquals(items.sinopsis, choosenItems?.sinopsis)
-        assertEquals(items.poster, choosenItems?.poster)
+        assertEquals(items.id, choosenItems.id)
+        assertEquals(items.judul, choosenItems.judul)
+        assertEquals(items.waktuRelease, choosenItems.waktuRelease)
+        assertEquals(items.genre, choosenItems.genre)
+        assertEquals(items.durasi, choosenItems.durasi)
+        assertEquals(items.score, choosenItems.score)
+        assertEquals(items.sinopsis, choosenItems.sinopsis)
+        assertEquals(items.poster, choosenItems.poster)
     }
 }

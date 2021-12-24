@@ -35,8 +35,8 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
             ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]
 
         when(intent.getIntExtra(CLICK_STATS, 0)){
-            EXTRA_CLICK_M -> setBinding(movieViewModel.getDetailMovie(intent.getIntExtra(ID, 0))!!)
-            EXTRA_CLICK_TV -> setBinding(tvShowViewModel.getDetailTV(intent.getIntExtra(ID, 0))!!)
+            EXTRA_CLICK_M -> setBinding(movieViewModel.getDetailMovie(intent.getIntExtra(ID, 0)))
+            EXTRA_CLICK_TV -> setBinding(tvShowViewModel.getDetailTV(intent.getIntExtra(ID, 0)))
         }
     }
 
