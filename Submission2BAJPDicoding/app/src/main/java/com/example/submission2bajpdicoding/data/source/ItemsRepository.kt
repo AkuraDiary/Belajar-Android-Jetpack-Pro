@@ -41,7 +41,7 @@ class ItemsRepository private constructor(
     }
 
     override fun getMovieById(Id: String): LiveData<Items> {
-        val MovieResult = MutableLiveData<Items>()
+        val movieResult = MutableLiveData<Items>()
         remoteDataSource.getMovies(object : RemoteDataSource.LoadMovieCallback {
             override fun onAllMoviesReceived(movieItemResponse: List<MovieItem>?) {
                 lateinit var selectedMovieShow : Items
@@ -64,10 +64,10 @@ class ItemsRepository private constructor(
                         }
                     }
                 }
-                MovieResult.postValue(selectedMovieShow)
+                movieResult.postValue(selectedMovieShow)
             }
         })
-        return MovieResult
+        return movieResult
     }
 
     override fun getAllTvShows(): LiveData<List<Items>> {
