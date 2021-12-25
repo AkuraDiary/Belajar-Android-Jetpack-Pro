@@ -16,6 +16,7 @@ buildscript {
         testRules = "1.4.0"
         cardViewVersion = "1.0.0"
         victorVersion = "1.0.4"
+
     }
 
     repositories {

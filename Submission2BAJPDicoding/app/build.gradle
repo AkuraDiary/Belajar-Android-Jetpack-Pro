@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
-    //id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
 
@@ -63,8 +62,21 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$testJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    testImplementation "org.mockito:mockito-core:3.6.0"
+    testImplementation "org.mockito:mockito-inline:3.6.0"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Instrumental Testing dependencies
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     androidTestImplementation "androidx.test:rules:$testRules"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:3.4.0"
+
+    //Retrofit dependencies
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    //Database
+    implementation "android.arch.presistence.room:runtime:2.4.0"
+    implementation "android.arch.presistence.room:test:2.4.0"
+
 }
