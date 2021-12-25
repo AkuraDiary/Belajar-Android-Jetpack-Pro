@@ -52,7 +52,11 @@ dependencies {
     implementation 'androidx.viewpager:viewpager:1.0.0'
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
 
-    //implementation "com.victor:lib:$victorVersion"//rotate loading
+    //Rounded ImageView
+    implementation "com.makeramen:roundedimageview:2.3.0"
+
+    //Loading Animation
+    implementation "com.github.ybq:Android-SpinKit:1.4.0"
 
     //Architecture Components dependencies
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
