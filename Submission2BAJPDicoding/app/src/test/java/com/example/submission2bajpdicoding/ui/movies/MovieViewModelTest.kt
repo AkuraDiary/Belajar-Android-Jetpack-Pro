@@ -1,7 +1,7 @@
 package com.example.submission2bajpdicoding.ui.movies
 
 import com.example.submission2bajpdicoding.R
-import com.example.submission2bajpdicoding.data.source.local.models.Items
+import com.example.submission2bajpdicoding.data.source.local.entity.Items
 import org.junit.Assert.*
 
 import org.junit.Before
@@ -45,8 +45,8 @@ class MovieViewModelTest {
         assertEquals(items.id, choosenItems.id)
         assertEquals(items.judul, choosenItems.judul)
         assertEquals(items.waktuRelease, choosenItems.waktuRelease)
-        assertEquals(items.genre, choosenItems.genre)
-        assertEquals(items.durasi, choosenItems.durasi)
+        assertEquals(items.OriginalTitle, choosenItems.OriginalTitle)
+        assertEquals(items.popularity, choosenItems.popularity)
         assertEquals(items.score, choosenItems.score)
         assertEquals(items.sinopsis, choosenItems.sinopsis)
         assertEquals(items.poster, choosenItems.poster)

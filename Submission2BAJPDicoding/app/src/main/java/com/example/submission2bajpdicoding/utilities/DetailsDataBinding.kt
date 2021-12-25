@@ -1,7 +1,7 @@
 package com.example.submission2bajpdicoding.utilities
 
 import android.widget.ImageView
-import com.example.submission2bajpdicoding.data.source.local.models.Items
+import com.example.submission2bajpdicoding.data.source.local.entity.Items
 
 interface DetailsDataBinding {
     fun setBinding(items: Items)

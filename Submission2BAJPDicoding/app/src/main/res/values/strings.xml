@@ -3,8 +3,8 @@
     <string name="poster">tempat deskripsi poster</string>
     <string name="text_title">Ini Judul</string>
     <string name="text_release">tanggal rilis</string>
-    <string name="text_duration">durasi</string>
-    <string name="text_genre">genre</string>
+    <string name="text_popularity">durasi</string>
+    <string name="text_originalTitle">genre</string>
     <string name="text_score">score</string>
     <string name="overview">Sinopsis</string>
     <string name="text_overview">ini overview</string>

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.databinding.ListItemLayoutBinding
-import com.example.submission2bajpdicoding.data.source.local.models.Items
+import com.example.submission2bajpdicoding.data.source.local.entity.Items
 import com.example.submission2bajpdicoding.ui.activities.DetailsActivity
 import com.example.submission2bajpdicoding.ui.activities.DetailsActivity.Companion.CLICK_STATS
 import com.example.submission2bajpdicoding.ui.activities.DetailsActivity.Companion.ID
@@ -46,7 +46,7 @@ class KatalogAdapter(private val idAdapter : Int): RecyclerView.Adapter<KatalogA
                     .load(items.poster)
                     .into(binding.itemImage)
                 binding.itemTitle.text = items.judul
-                binding.itemGenre.text = items.genre
+                binding.itemGenre.text = items.OriginalTitle
                 itemView.setOnClickListener {
                     val intent = Intent(context, DetailsActivity::class.java).apply {
                         putExtra(ID, items.id)

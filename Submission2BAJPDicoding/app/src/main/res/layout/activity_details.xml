@@ -138,13 +138,13 @@
                         android:fontFamily="serif-monospace"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        app:drawableStartCompat="@drawable/ic_time"
+                        app:drawableStartCompat="@drawable/ic_stars"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cv_tv_release"
-                        tools:text="@string/text_duration" />
+                        tools:text="@string/text_popularity" />
 
                     <TextView
-                        android:id="@+id/cv_tv_genre"
+                        android:id="@+id/cv_tv_originalTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -157,7 +157,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cv_tv_duration"
-                        tools:text="@string/text_genre" />
+                        tools:text="@string/text_originalTitle" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="84dp"
@@ -170,7 +170,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cv_tv_genre">
+                        app:layout_constraintTop_toBottomOf="@id/cv_tv_originalTitle">
 
                         <TextView
                             android:id="@+id/cv_tv_score"

@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.databinding.ActivityDetailsBinding
-import com.example.submission2bajpdicoding.data.source.local.models.Items
+import com.example.submission2bajpdicoding.data.source.local.entity.Items
 import com.example.submission2bajpdicoding.ui.movies.FragmentMovie.Companion.EXTRA_CLICK_M
 import com.example.submission2bajpdicoding.ui.movies.MovieViewModel
 import com.example.submission2bajpdicoding.ui.tvShows.FragmentTV.Companion.EXTRA_CLICK_TV
@@ -47,8 +47,8 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
         multipleGlide(detailActivityViewBindng.posterBigPlaceholder, detailActivityViewBindng.posterSmallPlaceholder, items)
         detailActivityViewBindng.cvTvTitle.text = items.judul
         detailActivityViewBindng.cvTvRelease.text = items.waktuRelease
-        detailActivityViewBindng.cvTvDuration.text = items.durasi
-        detailActivityViewBindng.cvTvGenre.text = items.genre
+        detailActivityViewBindng.cvTvDuration.text = items.popularity
+        detailActivityViewBindng.cvTvOriginalTitle.text = items.OriginalTitle
         detailActivityViewBindng.cvTvScore.text = items.score
         detailActivityViewBindng.isiOverview.text = items.sinopsis
     }

@@ -49,13 +49,13 @@ class MainActivityTest{
             check(matches(isDisplayed()))
             check(matches(withText(dataMovies[0].waktuRelease)))
         }
-        onView(withId(R.id.cv_tv_genre)).apply {
+        onView(withId(R.id.cv_tv_originalTitle)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(dataMovies[0].genre)))
+            check(matches(withText(dataMovies[0].OriginalTitle)))
         }
         onView(withId(R.id.cv_tv_duration)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(dataMovies[0].durasi)))
+            check(matches(withText(dataMovies[0].popularity)))
         }
         onView(withId(R.id.cv_tv_score)).apply {
             check(matches(isDisplayed()))
@@ -82,13 +82,13 @@ class MainActivityTest{
             check(matches(isDisplayed()))
             check(matches(withText(dataTV[0].waktuRelease)))
         }
-        onView(withId(R.id.cv_tv_genre)).apply {
+        onView(withId(R.id.cv_tv_originalTitle)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(dataTV[0].genre)))
+            check(matches(withText(dataTV[0].OriginalTitle)))
         }
         onView(withId(R.id.cv_tv_duration)).apply {
             check(matches(isDisplayed()))
-            check(matches(withText(dataTV[0].durasi)))
+            check(matches(withText(dataTV[0].popularity)))
         }
         onView(withId(R.id.cv_tv_score)).apply {
             check(matches(isDisplayed()))

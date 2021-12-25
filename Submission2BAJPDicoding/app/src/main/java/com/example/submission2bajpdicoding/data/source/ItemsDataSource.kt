@@ -1,7 +1,7 @@
 package com.example.submission2bajpdicoding.data.source
 
 import androidx.lifecycle.LiveData
-import com.example.submission2bajpdicoding.data.source.local.models.Items
+import com.example.submission2bajpdicoding.data.source.local.entity.Items
 
 interface ItemsDataSource {
     fun getAllMovies(): LiveData<List<Items>>
