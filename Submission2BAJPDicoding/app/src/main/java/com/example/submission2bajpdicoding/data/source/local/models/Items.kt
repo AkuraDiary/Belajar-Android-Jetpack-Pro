@@ -1,4 +1,4 @@
-package com.example.submission2bajpdicoding.models
+package com.example.submission2bajpdicoding.data.source.local.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

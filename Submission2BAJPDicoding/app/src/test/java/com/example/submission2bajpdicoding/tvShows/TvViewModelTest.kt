@@ -1,7 +1,7 @@
 package com.example.submission2bajpdicoding.tvShows
 
 import com.example.submission2bajpdicoding.R
-import com.example.submission2bajpdicoding.models.Items
+import com.example.submission2bajpdicoding.data.source.local.models.Items
 import com.example.submission2bajpdicoding.ui.tvShows.TvViewModel
 import org.junit.Assert.*
 

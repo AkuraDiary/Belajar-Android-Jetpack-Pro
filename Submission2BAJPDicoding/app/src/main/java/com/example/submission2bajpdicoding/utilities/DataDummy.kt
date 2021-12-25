@@ -1,7 +1,7 @@
 package com.example.submission2bajpdicoding.utilities
 
 import com.example.submission2bajpdicoding.R
-import com.example.submission2bajpdicoding.models.Items
+import com.example.submission2bajpdicoding.data.source.local.models.Items
 
 object DataDummy {
 

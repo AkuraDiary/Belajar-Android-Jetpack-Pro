@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.databinding.ActivityDetailsBinding
-import com.example.submission2bajpdicoding.models.Items
+import com.example.submission2bajpdicoding.data.source.local.models.Items
 import com.example.submission2bajpdicoding.ui.movies.FragmentMovie.Companion.EXTRA_CLICK_M
 import com.example.submission2bajpdicoding.ui.movies.MovieViewModel
 import com.example.submission2bajpdicoding.ui.tvShows.FragmentTV.Companion.EXTRA_CLICK_TV

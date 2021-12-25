@@ -83,4 +83,7 @@ dependencies {
     implementation "android.arch.presistence.room:runtime:2.4.0"
     implementation "android.arch.presistence.room:test:2.4.0"
 
+    //Idling Resource
+    implementation "androidx.test.espresso:espresso-idling-resource:3.4.0"
+
 }

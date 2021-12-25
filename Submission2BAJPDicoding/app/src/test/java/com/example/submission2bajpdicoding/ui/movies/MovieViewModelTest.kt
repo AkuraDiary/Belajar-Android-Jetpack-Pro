@@ -1,7 +1,7 @@
 package com.example.submission2bajpdicoding.ui.movies
 
 import com.example.submission2bajpdicoding.R
-import com.example.submission2bajpdicoding.models.Items
+import com.example.submission2bajpdicoding.data.source.local.models.Items
 import org.junit.Assert.*
 
 import org.junit.Before

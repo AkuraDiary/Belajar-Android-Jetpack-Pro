@@ -1,7 +1,7 @@
 package com.example.submission2bajpdicoding.ui.tvShows
 
 import androidx.lifecycle.ViewModel
-import com.example.submission2bajpdicoding.models.Items
+import com.example.submission2bajpdicoding.data.source.local.models.Items
 import com.example.submission2bajpdicoding.utilities.DataDummy
 
 class TvViewModel: ViewModel() {
