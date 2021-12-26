@@ -7,25 +7,44 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.databinding.FragmentTvBinding
 import com.example.submission2bajpdicoding.ui.adapter.KatalogAdapter
+import com.example.submission2bajpdicoding.utilities.ViewModelFactory
 
 class FragmentTV : Fragment(){
 
-    private lateinit var viewModel : TvViewModel
+    private lateinit var binding : FragmentTvBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_tv, container, false)
+    ): View {
+        binding = FragmentTvBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if(activity != null){
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[TvViewModel::class.java]
+            val tvAdapter = KatalogAdapter(id)
+            viewModel.getTVShows().observe(viewLifecycleOwner, {items ->
+                tvAdapter.setAll(items)
+                tvAdapter.notifyDataSetChanged()
+            })
+            with(binding.rvTVPlaceholder){
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                adapter = tvAdapter
+            }
+        }
+    }
+    /*override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[TvViewModel::class.java]
+        //viewModel = ViewModelProvider(this)[TvViewModel::class.java]
         val binding = view?.let { FragmentTvBinding.bind(it) }
         if (activity != null){
             val tvShowVM = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]
@@ -41,7 +60,7 @@ class FragmentTV : Fragment(){
             }
 
         }
-    }
+    }*/
 
     companion object{
         const val EXTRA_CLICK_TV = 2
