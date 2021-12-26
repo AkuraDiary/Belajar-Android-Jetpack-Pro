@@ -35,7 +35,7 @@ class ViewModelFactory private constructor(
          private var instance: ViewModelFactory? = null
 
          fun getInstance(context: Context): ViewModelFactory=
-             instance ?: synchronized(this){
+             instance ?: kotlin.synchronized(this){
                  instance ?: ViewModelFactory(DataInjection.provideRepository(context))
              }
      }

@@ -53,7 +53,7 @@ class MainActivityTest{
             check(matches(isDisplayed()))
             check(matches(withText(dataMovies[0].OriginalTitle)))
         }
-        onView(withId(R.id.cv_tv_duration)).apply {
+        onView(withId(R.id.cv_tv_popularity)).apply {
             check(matches(isDisplayed()))
             check(matches(withText(dataMovies[0].popularity)))
         }
@@ -86,7 +86,7 @@ class MainActivityTest{
             check(matches(isDisplayed()))
             check(matches(withText(dataTV[0].OriginalTitle)))
         }
-        onView(withId(R.id.cv_tv_duration)).apply {
+        onView(withId(R.id.cv_tv_popularity)).apply {
             check(matches(isDisplayed()))
             check(matches(withText(dataTV[0].popularity)))
         }
