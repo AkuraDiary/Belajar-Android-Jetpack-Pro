@@ -44,7 +44,7 @@ class KatalogAdapter(private val idAdapter : Int): RecyclerView.Adapter<KatalogA
         fun bind(items: Items) {
             itemView.apply {
                 Glide.with(itemView)
-                    .load(items.poster)
+                    .load(itemView.context.getString(R.string.baseUrl_Poster, items.poster))
                     .into(binding.itemImage)
                 binding.itemTitle.text = items.title
                 binding.itemOriginalTitle.text = items.OriginalTitle

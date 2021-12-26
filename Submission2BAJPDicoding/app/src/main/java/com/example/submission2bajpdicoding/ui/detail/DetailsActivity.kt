@@ -13,7 +13,9 @@ import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.databinding.ActivityDetailsBinding
 import com.example.submission2bajpdicoding.data.source.local.entity.Items
 import com.example.submission2bajpdicoding.ui.movies.FragmentMovie.Companion.EXTRA_CLICK_M
+import com.example.submission2bajpdicoding.ui.movies.MovieViewModel
 import com.example.submission2bajpdicoding.ui.tvShows.FragmentTV.Companion.EXTRA_CLICK_TV
+import com.example.submission2bajpdicoding.ui.tvShows.TvViewModel
 import com.example.submission2bajpdicoding.utilities.DetailsDataBinding
 import com.example.submission2bajpdicoding.utilities.ViewModelFactory
 import com.google.android.material.appbar.AppBarLayout
@@ -40,9 +42,14 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
             ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]*/
 
         when(intent.getIntExtra(CLICK_STATS, 0)){
-            EXTRA_CLICK_M -> setBinding(viewModel.getSelectedMovie(intent.getIntExtra(ID, 0)
-                .toString()))
-            EXTRA_CLICK_TV -> setBinding(viewModel.getSelectedTV(intent.getIntExtra(ID, 0).toString()))
+            EXTRA_CLICK_M -> {
+                viewModel.setSelectedMovie(ID)
+                setBinding(viewModel.getSelectedMovie(ID))
+            }
+            EXTRA_CLICK_TV -> {
+                viewModel.setSelectedTV(ID)
+                setBinding(viewModel.getSelectedTV(ID))
+            }
         }
     }
 
@@ -57,8 +64,12 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
     }
 
     override fun multipleGlide(firstImage: ImageView, secondImage: ImageView, items: LiveData<Items>) {
-        Glide.with(this).load(items.value?.poster).into(firstImage)
-        Glide.with(this).load(items.value?.poster).into(secondImage)
+        Glide.with(this@DetailsActivity)
+            .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.value?.poster))
+            .into(firstImage)
+        Glide.with(this@DetailsActivity)
+            .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.value?.poster))
+            .into(secondImage)
     }
 
     private fun collapseToolbarConfiguration(){
