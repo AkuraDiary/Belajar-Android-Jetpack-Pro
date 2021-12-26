@@ -16,7 +16,7 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name="com.example.submission2bajpdicoding.ui.activities.DetailsActivity"
+            android:name="com.example.submission2bajpdicoding.ui.detail.DetailsActivity"
             android:exported="false" />
         <activity
             android:name="com.example.submission2bajpdicoding.ui.activities.Splashscreen"
