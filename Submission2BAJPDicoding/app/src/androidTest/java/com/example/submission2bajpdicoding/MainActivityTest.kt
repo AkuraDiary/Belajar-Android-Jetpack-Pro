@@ -14,8 +14,8 @@ import org.junit.Rule
 import org.junit.Test
 
 class MainActivityTest{
-    private val dataMovies = DataDummy.getMovie()
-    private val dataTV = DataDummy.getTVShow()
+    private val dataMovies = DataDummy.getMovie() //TODO
+    private val dataTV = DataDummy.getTVShow() //TODO
 
     @get:Rule
     var activity = ActivityTestRule(MainActivity::class.java)
