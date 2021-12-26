@@ -1,4 +1,4 @@
-package com.example.submission2bajpdicoding.ui.activities
+package com.example.submission2bajpdicoding.ui.detail
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
