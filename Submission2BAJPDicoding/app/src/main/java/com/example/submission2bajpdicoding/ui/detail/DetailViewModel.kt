@@ -17,6 +17,6 @@ class DetailViewModel(private val itemsRepository: ItemsRepository) : ViewModel(
         this.tvId = tvShowId
     }
 
-    fun getSelectedMovie():LiveData<Items> = itemsRepository.getMovieById(movieId)
-    fun getSelectedTV(): LiveData<Items> = itemsRepository.getTvShowsById(tvId)
+    fun getSelectedMovie(ID: String):LiveData<Items> = itemsRepository.getMovieById(ID)
+    fun getSelectedTV(ID : String): LiveData<Items> = itemsRepository.getTvShowsById(ID)
 }

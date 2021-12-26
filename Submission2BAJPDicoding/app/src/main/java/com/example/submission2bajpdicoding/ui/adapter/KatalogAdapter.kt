@@ -4,12 +4,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.submission2bajpdicoding.R
-import com.example.submission2bajpdicoding.databinding.ListItemLayoutBinding
 import com.example.submission2bajpdicoding.data.source.local.entity.Items
+import com.example.submission2bajpdicoding.databinding.ListItemLayoutBinding
 import com.example.submission2bajpdicoding.ui.detail.DetailsActivity
 import com.example.submission2bajpdicoding.ui.detail.DetailsActivity.Companion.CLICK_STATS
 import com.example.submission2bajpdicoding.ui.detail.DetailsActivity.Companion.ID
@@ -18,7 +17,8 @@ import com.example.submission2bajpdicoding.ui.detail.DetailsActivity.Companion.J
 class KatalogAdapter(private val idAdapter : Int): RecyclerView.Adapter<KatalogAdapter.ListViewHolder>() {
     private val _itemsList = ArrayList<Items>()
 
-    fun setAll(data: LiveData<List<Items>>) {
+    fun setAll(data: List<Items>?) {
+        if (data == null) return
         _itemsList.clear()
         _itemsList.addAll(data)
     }

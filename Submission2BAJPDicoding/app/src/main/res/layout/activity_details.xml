@@ -129,7 +129,7 @@
                         tools:text="@string/text_release" />
 
                     <TextView
-                        android:id="@+id/cv_tv_duration"
+                        android:id="@+id/cv_tv_popularity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -156,7 +156,7 @@
                         app:drawableStartCompat="@drawable/ic_movie"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cv_tv_duration"
+                        app:layout_constraintTop_toBottomOf="@id/cv_tv_popularity"
                         tools:text="@string/text_originalTitle" />
 
                     <androidx.cardview.widget.CardView
