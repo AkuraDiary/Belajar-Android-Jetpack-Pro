@@ -32,7 +32,7 @@ class FragmentTV : Fragment(){
 
             val tvShows = tvShowVM.getTVShows()
             val adapter = KatalogAdapter(EXTRA_CLICK_TV)
-            adapter.setAll(tvShows)
+            tvShows.observe(viewLifecycleOwner, {list->adapter.setAll(list)})
 
             binding?.rvTVPlaceholder?.apply {
                 layoutManager = LinearLayoutManager(context)

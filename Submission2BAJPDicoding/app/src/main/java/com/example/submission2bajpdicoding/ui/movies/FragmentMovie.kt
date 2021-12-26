@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission2bajpdicoding.databinding.FragmentMovieBinding
 import com.example.submission2bajpdicoding.ui.adapter.KatalogAdapter
 import com.example.submission2bajpdicoding.utilities.ViewModelFactory
@@ -26,6 +25,20 @@ class FragmentMovie : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null){
             val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
+            val movieAdapter = KatalogAdapter(id)
+
+            //binding.progressSpinKitList.visibility = View.VISIBLE
+            viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
+                //binding.progressSpinKitList.visibility = View.GONE
+                movieAdapter.setAll(movies)
+                movieAdapter.notifyDataSetChanged()
+            })
+
+            with(binding.rvMoviePlaceholder) {
+                setHasFixedSize(true)
+                adapter = movieAdapter
+            }
         }
     }
 
