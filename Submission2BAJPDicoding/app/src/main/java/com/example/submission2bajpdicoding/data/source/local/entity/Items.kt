@@ -6,11 +6,11 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Items(
     val id: Int? = 0,
-    var judul: String? = null,
-    var waktuRelease: String? = null,
+    var title: String? = null,
+    var ReleaseDate: String? = null,
     var OriginalTitle: String? = null,
-    var popularity: Double = null,
-    var score: Double = null,
-    var sinopsis: String? = null,
+    var popularity: Double? = null,
+    var score: Double? = null,
+    var synopsis: String? = null,
     var poster: String? = null
 ): Parcelable

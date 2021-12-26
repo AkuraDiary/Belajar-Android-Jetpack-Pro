@@ -1,6 +1,5 @@
 package com.example.submission2bajpdicoding.networking
 
-import com.example.submission2bajpdicoding.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -15,7 +14,7 @@ class NetworkClient {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL)
+                .baseUrl("https://api.themoviedb.org/3/discover/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

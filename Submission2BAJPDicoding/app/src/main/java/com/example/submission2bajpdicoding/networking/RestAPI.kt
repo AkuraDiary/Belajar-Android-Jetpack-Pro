@@ -1,11 +1,11 @@
 package com.example.submission2bajpdicoding.networking
 
-import com.example.submission2bajpdicoding.BuildConfig
 import com.example.submission2bajpdicoding.data.source.remote.response.MovieResponse
 import com.example.submission2bajpdicoding.data.source.remote.response.TvShowResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
+import com.example.submission2bajpdicoding.BuildConfig
 
 interface RestAPI {
 

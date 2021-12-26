@@ -45,12 +45,12 @@ class KatalogAdapter(private val idAdapter : Int): RecyclerView.Adapter<KatalogA
                 Glide.with(itemView)
                     .load(items.poster)
                     .into(binding.itemImage)
-                binding.itemTitle.text = items.judul
-                binding.itemGenre.text = items.OriginalTitle
+                binding.itemTitle.text = items.title
+                binding.itemOriginalTitle.text = items.OriginalTitle
                 itemView.setOnClickListener {
                     val intent = Intent(context, DetailsActivity::class.java).apply {
                         putExtra(ID, items.id)
-                        putExtra(JUDUL, items.judul)
+                        putExtra(JUDUL, items.title)
                         putExtra(CLICK_STATS, idAdapter)
                     }
                     itemView.context.startActivity(intent)

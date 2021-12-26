@@ -45,12 +45,12 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
     override fun setBinding(items: Items) {
         multipleGlide(detailActivityViewBindng.posterBigPlaceholder, detailActivityViewBindng.posterSmallPlaceholder, items)
-        detailActivityViewBindng.cvTvTitle.text = items.judul
-        detailActivityViewBindng.cvTvRelease.text = items.waktuRelease
-        detailActivityViewBindng.cvTvDuration.text = items.popularity
+        detailActivityViewBindng.cvTvTitle.text = items.title
+        detailActivityViewBindng.cvTvRelease.text = items.ReleaseDate
+        detailActivityViewBindng.cvTvDuration.text = items.popularity.toString()
         detailActivityViewBindng.cvTvOriginalTitle.text = items.OriginalTitle
-        detailActivityViewBindng.cvTvScore.text = items.score
-        detailActivityViewBindng.isiOverview.text = items.sinopsis
+        detailActivityViewBindng.cvTvScore.text = items.score.toString()
+        detailActivityViewBindng.isiOverview.text = items.synopsis
     }
 
     override fun multipleGlide(firstImage: ImageView, secondImage: ImageView, items: Items) {

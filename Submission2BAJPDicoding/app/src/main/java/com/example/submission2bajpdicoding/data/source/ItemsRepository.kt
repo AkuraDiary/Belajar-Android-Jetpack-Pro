@@ -25,8 +25,8 @@ class ItemsRepository private constructor(
                                     title,
                                     releaseDate,
                                     originalTitle,
-                                    popularity.toString(),
-                                    voteAverage.toString(),
+                                    popularity,
+                                    voteAverage,
                                     overview,
                                     posterPath,
                                 )
@@ -55,8 +55,8 @@ class ItemsRepository private constructor(
                                         title,
                                         releaseDate,
                                         originalTitle,
-                                        popularity.toString(),
-                                        voteAverage.toString(),
+                                        popularity,
+                                        voteAverage,
                                         overview,
                                         posterPath
                                     )
@@ -84,8 +84,8 @@ class ItemsRepository private constructor(
                                     name,
                                     firstAirDate,
                                     originalTitle,
-                                    popularity.toString(),
-                                    voteAverage.toString(),
+                                    popularity,
+                                    voteAverage,
                                     overview,
                                     posterPath
                                 )
@@ -114,8 +114,8 @@ class ItemsRepository private constructor(
                                         name,
                                         firstAirDate,
                                         originalTitle,
-                                        popularity.toString(),
-                                        voteAverage.toString(),
+                                        popularity,
+                                        voteAverage,
                                         overview,
                                         posterPath
                                 )

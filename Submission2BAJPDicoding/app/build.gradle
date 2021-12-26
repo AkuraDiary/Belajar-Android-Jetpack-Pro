@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    //id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -16,6 +17,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_KEY" , "\"b8108155df9397df0b0301b342f82cb6\""
     }
 
     buildTypes {
@@ -56,7 +58,7 @@ dependencies {
     implementation "com.makeramen:roundedimageview:2.3.0"
 
     //Loading Animation
-    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    //implementation "com.github.ybq:Android-SpinKit:1.4.0"
 
 
     //Architecture Components dependencies
@@ -83,8 +85,12 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
 
     //Database
-    implementation "android.arch.presistence.room:runtime:2.4.0"
-    implementation "android.arch.presistence.room:test:2.4.0"
+    implementation "androidx.room:room-runtime:2.4.0"
+    annotationProcessor "androidx.room:room-compiler:2.4.0"
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.4.0")
+
 
     //Idling Resource
     implementation "androidx.test.espresso:espresso-idling-resource:3.4.0"
