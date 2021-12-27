@@ -31,7 +31,7 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
         collapseToolbarConfiguration()
 
-        val factory = ViewModelFactory.getInstance(this)
+        val factory = ViewModelFactory.getInstance()
         val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
         val id = intent.getIntExtra(ID, -1)
 

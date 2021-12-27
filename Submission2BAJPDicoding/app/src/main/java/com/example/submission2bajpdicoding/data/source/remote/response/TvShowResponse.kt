@@ -1,6 +1,5 @@
 package com.example.submission2bajpdicoding.data.source.remote.response
 
-import com.example.submission2bajpdicoding.data.source.local.entity.Items
 import com.google.gson.annotations.SerializedName
 
 data class TvShowResponse (

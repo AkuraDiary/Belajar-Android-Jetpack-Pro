@@ -1,6 +1,5 @@
 package com.example.submission2bajpdicoding
 
-import android.app.Activity
 import android.content.pm.ActivityInfo
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
@@ -9,11 +8,10 @@ import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
-import com.example.submission2bajpdicoding.data.source.ItemsRepository
 import com.example.submission2bajpdicoding.ui.activities.MainActivity
-import com.example.submission2bajpdicoding.utilities.DataDummy
 import com.example.submission2bajpdicoding.utilities.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before

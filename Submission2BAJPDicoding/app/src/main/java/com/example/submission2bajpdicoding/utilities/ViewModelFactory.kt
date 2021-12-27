@@ -1,6 +1,5 @@
 package com.example.submission2bajpdicoding.utilities
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.submission2bajpdicoding.data.source.ItemsRepository
@@ -33,8 +32,8 @@ class ViewModelFactory private constructor(
          @Volatile
          private var instance: ViewModelFactory? = null
 
-         fun getInstance(context: Context): ViewModelFactory=
-             instance ?: kotlin.synchronized(this){
+         fun getInstance(): ViewModelFactory=
+             instance ?: synchronized(this){
                  instance ?: ViewModelFactory(DataInjection.provideRepository())
              }
      }

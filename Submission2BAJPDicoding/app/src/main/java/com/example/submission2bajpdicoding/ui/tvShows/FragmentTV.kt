@@ -28,7 +28,7 @@ class FragmentTV : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         if(activity != null){
-            val factory = ViewModelFactory.getInstance(requireActivity())
+            val factory = ViewModelFactory.getInstance()
             val viewModel = ViewModelProvider(this, factory)[TvViewModel::class.java]
             val tvAdapter = KatalogAdapter(EXTRA_CLICK_TV)
             viewModel.getTVShows().observe(viewLifecycleOwner, {items ->
