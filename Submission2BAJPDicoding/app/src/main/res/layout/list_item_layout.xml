@@ -57,6 +57,6 @@
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="@string/text_originalTitle"
-            tools:textColor="@color/black"/>
+            tools:textColor="@color/white"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

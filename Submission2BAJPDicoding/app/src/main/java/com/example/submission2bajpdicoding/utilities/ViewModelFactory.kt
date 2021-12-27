@@ -8,7 +8,6 @@ import com.example.submission2bajpdicoding.di.DataInjection
 import com.example.submission2bajpdicoding.ui.detail.DetailViewModel
 import com.example.submission2bajpdicoding.ui.movies.MovieViewModel
 import com.example.submission2bajpdicoding.ui.tvShows.TvViewModel
-import kotlinx.coroutines.internal.synchronized
 
 class ViewModelFactory private constructor(
     private val itemsRepository: ItemsRepository
@@ -36,7 +35,7 @@ class ViewModelFactory private constructor(
 
          fun getInstance(context: Context): ViewModelFactory=
              instance ?: kotlin.synchronized(this){
-                 instance ?: ViewModelFactory(DataInjection.provideRepository(context))
+                 instance ?: ViewModelFactory(DataInjection.provideRepository())
              }
      }
 }
