@@ -27,7 +27,7 @@ class FragmentMovie : Fragment() {
         if (activity != null){
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
-            val movieAdapter = KatalogAdapter(id)
+            val movieAdapter = KatalogAdapter(EXTRA_CLICK_M)
 
             //binding.progressSpinKitList.visibility = View.VISIBLE
             viewModel.getMovies().observe(viewLifecycleOwner, { movies ->

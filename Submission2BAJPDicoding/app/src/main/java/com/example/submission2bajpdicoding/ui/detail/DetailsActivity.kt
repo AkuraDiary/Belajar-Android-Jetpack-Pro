@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.data.source.local.entity.Items
@@ -34,39 +33,44 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+        val id = intent.getIntExtra(ID, -1)
 
         when(intent.getIntExtra(CLICK_STATS, 0)){
             EXTRA_CLICK_M -> {
-                viewModel.setSelectedMovie(ID)
-                setBinding(viewModel.getSelectedMovie(ID))
+                viewModel.setSelectedMovie(id.toString())
+                viewModel.getSelectedMovie(id.toString()).observe(this, {
+                    setBinding(it)//viewModel.getSelectedMovie(ID))
+                })
                 detailActivityViewBindng.posterBigPlaceholder.visibility = View.VISIBLE
                 detailActivityViewBindng.views2.visibility = View.VISIBLE
             }
             EXTRA_CLICK_TV -> {
-                viewModel.setSelectedTV(ID)
-                setBinding(viewModel.getSelectedTV(ID))
+                viewModel.setSelectedTV(id.toString())
+                viewModel.getSelectedTV(id.toString()).observe(this, {
+                    setBinding(it)
+                })
                 detailActivityViewBindng.posterBigPlaceholder.visibility = View.VISIBLE
                 detailActivityViewBindng.views2.visibility = View.VISIBLE
             }
         }
     }
 
-    override fun setBinding(items: LiveData<Items>) {
+    override fun setBinding(items: Items) {
         multipleGlide(detailActivityViewBindng.posterBigPlaceholder, detailActivityViewBindng.posterSmallPlaceholder, items)
-        detailActivityViewBindng.cvTvTitle.text = items.value?.title
-        detailActivityViewBindng.cvTvRelease.text = items.value?.score.toString()
-        detailActivityViewBindng.cvTvPopularity.text = items.value?.popularity.toString()
-        detailActivityViewBindng.cvTvOriginalTitle.text = items.value?.score.toString()
-        detailActivityViewBindng.cvTvScore.text = items.value?.score.toString()
-        detailActivityViewBindng.isiOverview.text = items.value?.synopsis
+        detailActivityViewBindng.cvTvTitle.text = items.title
+        detailActivityViewBindng.cvTvRelease.text = items.ReleaseDate.toString()
+        detailActivityViewBindng.cvTvPopularity.text = items.popularity.toString()
+        detailActivityViewBindng.cvTvOriginalTitle.text = items.score.toString()
+        detailActivityViewBindng.cvTvScore.text = items.score.toString()
+        detailActivityViewBindng.isiOverview.text = items.synopsis
     }
 
-    override fun multipleGlide(firstImage: ImageView, secondImage: ImageView, items: LiveData<Items>) {
+    override fun multipleGlide(firstImage: ImageView, secondImage: ImageView, items: Items) {
         GlideApp.with(this@DetailsActivity)
-            .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.value?.poster))
+            .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.poster))
             .into(firstImage)
         GlideApp.with(this@DetailsActivity)
-            .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.value?.poster))
+            .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.poster))
             .into(secondImage)
     }
 

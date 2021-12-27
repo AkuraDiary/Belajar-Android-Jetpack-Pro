@@ -30,7 +30,7 @@ class FragmentTV : Fragment(){
         if(activity != null){
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[TvViewModel::class.java]
-            val tvAdapter = KatalogAdapter(id)
+            val tvAdapter = KatalogAdapter(EXTRA_CLICK_TV)
             viewModel.getTVShows().observe(viewLifecycleOwner, {items ->
                 tvAdapter.setAll(items)
                 tvAdapter.notifyDataSetChanged()
