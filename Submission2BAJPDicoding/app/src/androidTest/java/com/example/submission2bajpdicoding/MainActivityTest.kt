@@ -1,5 +1,6 @@
 package com.example.submission2bajpdicoding
 
+import android.app.Activity
 import android.content.pm.ActivityInfo
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
@@ -9,19 +10,20 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.rule.ActivityTestRule
+import com.example.submission2bajpdicoding.data.source.ItemsRepository
 import com.example.submission2bajpdicoding.ui.activities.MainActivity
 import com.example.submission2bajpdicoding.utilities.DataDummy
 import com.example.submission2bajpdicoding.utilities.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
 class MainActivityTest{
-    private val dataMovies = DataDummy.generateDummyMovies()
-    private val dataTV = DataDummy.generateDummyTvShow()
 
-    //@get:Rule
-    //var activity = ActivityScenarioRule(MainActivity::class.java)
+    @get:Rule
+    var activity = ActivityTestRule(MainActivity::class.java)
 
     @Before
     fun setUp(){
@@ -50,26 +52,15 @@ class MainActivityTest{
 
         swipeUp()
 
-        onView(withId(R.id.cv_tv_title)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataMovies[0].title)))
-        }
-        onView(withId(R.id.cv_tv_release)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataMovies[0].ReleaseDate)))
-        }
-        onView(withId(R.id.cv_tv_originalTitle)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataMovies[0].OriginalTitle)))
-        }
-        onView(withId(R.id.cv_tv_popularity)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataMovies[0].popularity.toString())))
-        }
-        onView(withId(R.id.cv_tv_score)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataMovies[0].score.toString())))
-        }
+        onView(withId(R.id.cv_tv_title)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_release)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_originalTitle)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_popularity)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_score)).check(matches(isDisplayed()))
 
         swipeDown()
 
@@ -83,26 +74,15 @@ class MainActivityTest{
 
         swipeUp()
 
-        onView(withId(R.id.cv_tv_title)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataTV[0].title)))
-        }
-        onView(withId(R.id.cv_tv_release)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataTV[0].ReleaseDate)))
-        }
-        onView(withId(R.id.cv_tv_originalTitle)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataTV[0].OriginalTitle)))
-        }
-        onView(withId(R.id.cv_tv_popularity)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataTV[0].popularity.toString())))
-        }
-        onView(withId(R.id.cv_tv_score)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText(dataTV[0].score.toString())))
-        }
+        onView(withId(R.id.cv_tv_title)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_release)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_originalTitle)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_popularity)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_tv_score)).check(matches(isDisplayed()))
 
         swipeDown()
 
@@ -111,7 +91,7 @@ class MainActivityTest{
 
     private fun tesRotasi(){
 
-        ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE//.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        activity.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         loadMovieAndTvData()
         onView(withId(R.id.rv_TV_placeholder)).apply {
@@ -120,8 +100,7 @@ class MainActivityTest{
         }
         loadDetailMovie()
         loadDetailTV()
-        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        //activity.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        activity.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     @Test
