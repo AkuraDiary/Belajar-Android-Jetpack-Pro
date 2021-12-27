@@ -1,21 +1,19 @@
 package com.example.submission2bajpdicoding.ui.detail
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.submission2bajpdicoding.R
-import com.example.submission2bajpdicoding.databinding.ActivityDetailsBinding
 import com.example.submission2bajpdicoding.data.source.local.entity.Items
+import com.example.submission2bajpdicoding.databinding.ActivityDetailsBinding
 import com.example.submission2bajpdicoding.ui.movies.FragmentMovie.Companion.EXTRA_CLICK_M
-import com.example.submission2bajpdicoding.ui.movies.MovieViewModel
 import com.example.submission2bajpdicoding.ui.tvShows.FragmentTV.Companion.EXTRA_CLICK_TV
-import com.example.submission2bajpdicoding.ui.tvShows.TvViewModel
 import com.example.submission2bajpdicoding.utilities.DetailsDataBinding
 import com.example.submission2bajpdicoding.utilities.ViewModelFactory
 import com.google.android.material.appbar.AppBarLayout
@@ -45,10 +43,14 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
             EXTRA_CLICK_M -> {
                 viewModel.setSelectedMovie(ID)
                 setBinding(viewModel.getSelectedMovie(ID))
+                detailActivityViewBindng.posterBigPlaceholder.visibility = View.VISIBLE
+                detailActivityViewBindng.views2.visibility = View.VISIBLE
             }
             EXTRA_CLICK_TV -> {
                 viewModel.setSelectedTV(ID)
                 setBinding(viewModel.getSelectedTV(ID))
+                detailActivityViewBindng.posterBigPlaceholder.visibility = View.VISIBLE
+                detailActivityViewBindng.views2.visibility = View.VISIBLE
             }
         }
     }
