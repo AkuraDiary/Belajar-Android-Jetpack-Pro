@@ -6,15 +6,20 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.with
 import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.data.source.local.entity.Items
 import com.example.submission2bajpdicoding.databinding.ActivityDetailsBinding
 import com.example.submission2bajpdicoding.ui.movies.FragmentMovie.Companion.EXTRA_CLICK_M
 import com.example.submission2bajpdicoding.ui.tvShows.FragmentTV.Companion.EXTRA_CLICK_TV
 import com.example.submission2bajpdicoding.utilities.DetailsDataBinding
+import com.example.submission2bajpdicoding.utilities.GlideApp
+import com.example.submission2bajpdicoding.utilities.GlideApp.with
+import com.example.submission2bajpdicoding.utilities.MyGlideApp
 import com.example.submission2bajpdicoding.utilities.ViewModelFactory
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -34,10 +39,6 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
-        /*val movieViewModel = ViewModelProvider(this,
-            ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-        val tvShowViewModel = ViewModelProvider(this,
-            ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]*/
 
         when(intent.getIntExtra(CLICK_STATS, 0)){
             EXTRA_CLICK_M -> {
@@ -66,10 +67,11 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
     }
 
     override fun multipleGlide(firstImage: ImageView, secondImage: ImageView, items: LiveData<Items>) {
-        Glide.with(this@DetailsActivity)
+
+        GlideApp.with(this@DetailsActivity)
             .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.value?.poster))
             .into(firstImage)
-        Glide.with(this@DetailsActivity)
+        GlideApp.with(this@DetailsActivity)
             .load(this@DetailsActivity.getString(R.string.baseUrl_Poster, items.value?.poster))
             .into(secondImage)
     }
@@ -84,16 +86,17 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
             if (collapsingToolbarLayout.height + verticalOffset < 2 * ViewCompat.getMinimumHeight(collapsingToolbarLayout)){
                 collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
                 detailActivityViewBindng.detailToolbar.apply {
-                    setBackgroundColor(Color.TRANSPARENT)
-                    title = intent.getStringExtra(JUDUL)
                     visibility = View.VISIBLE
                     detailActivityViewBindng.cvTvTitle.visibility = View.GONE
+                    setBackgroundColor(Color.TRANSPARENT)
+                    title = intent.getStringExtra(JUDUL)
                 }
             } else {
-                collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT)
-                detailActivityViewBindng.detailToolbar.setBackgroundColor(Color.TRANSPARENT)
                 detailActivityViewBindng.detailToolbar.visibility = View.GONE
                 detailActivityViewBindng.cvTvTitle.visibility = View.VISIBLE
+                collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT)
+                detailActivityViewBindng.detailToolbar.setBackgroundColor(Color.TRANSPARENT)
+
             }
         })
     }
