@@ -62,12 +62,4 @@ object DataDummy {
         return tvShow
     }
 
-    /*fun movieDetails(id:Int) :Items{
-        return getMovie()[id]
-    }*/
-
-    /*fun tvShowDetails(id:Int) : Items{
-        return getTVShow()[id]
-    }*/
-
 }

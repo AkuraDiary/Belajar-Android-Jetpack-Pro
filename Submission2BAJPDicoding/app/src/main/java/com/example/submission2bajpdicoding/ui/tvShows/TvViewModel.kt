@@ -10,8 +10,4 @@ class TvViewModel(private val itemsRepository: ItemsRepository): ViewModel() {
         return itemsRepository.getAllTvShows()
     }
 
-    /*fun getDetailTV(id : Int): Items {
-        return DataDummy.tvShowDetails(id)
-    }*/
-
 }

@@ -9,11 +9,4 @@ class MovieViewModel(private val itemsRepository: ItemsRepository) : ViewModel()
     fun getMovies(): LiveData<List<Items>>{
         return itemsRepository.getAllMovies()
     }
-/*fun getMovies():List<Items>{
-        return DataDummy.getMovie()
-    }*/
-
-    /*fun getDetailMovie(id: Int) : Items {
-        return DataDummy.movieDetails(id)
-    }*/
 }
