@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
-    //id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -56,9 +55,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-
-    //Loading Animation
-    //implementation "com.github.ybq:Android-SpinKit:1.4.0"
 
 
     //Architecture Components dependencies

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.submission2bajpdicoding.R
 import com.example.submission2bajpdicoding.databinding.ActivityMainBinding
 import com.example.submission2bajpdicoding.utilities.PagerSectionAdapter
-//import kotlinx.android.//.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var activityMainBinding: ActivityMainBinding

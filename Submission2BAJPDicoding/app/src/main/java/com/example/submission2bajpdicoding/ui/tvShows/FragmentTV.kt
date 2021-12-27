@@ -42,25 +42,6 @@ class FragmentTV : Fragment(){
             }
         }
     }
-    /*override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        //viewModel = ViewModelProvider(this)[TvViewModel::class.java]
-        val binding = view?.let { FragmentTvBinding.bind(it) }
-        if (activity != null){
-            val tvShowVM = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvViewModel::class.java]
-
-            val tvShows = tvShowVM.getTVShows()
-            val adapter = KatalogAdapter(EXTRA_CLICK_TV)
-            tvShows.observe(viewLifecycleOwner, {list->adapter.setAll(list)})
-
-            binding?.rvTVPlaceholder?.apply {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                this.adapter = adapter
-            }
-
-        }
-    }*/
 
     companion object{
         const val EXTRA_CLICK_TV = 2

@@ -39,7 +39,7 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
             EXTRA_CLICK_M -> {
                 viewModel.setSelectedMovie(id.toString())
                 viewModel.getSelectedMovie(id.toString()).observe(this, {
-                    setBinding(it)//viewModel.getSelectedMovie(ID))
+                    setBinding(it)
                 })
                 detailActivityViewBindng.posterBigPlaceholder.visibility = View.VISIBLE
                 detailActivityViewBindng.views2.visibility = View.VISIBLE
