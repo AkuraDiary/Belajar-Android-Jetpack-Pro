@@ -103,6 +103,8 @@ class DetailCourseActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_detail, menu)
         this.menu = menu
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailCourseViewModel::class.java]
         viewModel.courseModule.observe(this, { courseWithModule ->
             if (courseWithModule != null) {
                 when (courseWithModule.status) {
@@ -122,6 +124,8 @@ class DetailCourseActivity : AppCompatActivity() {
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailCourseViewModel::class.java]
         if (item.itemId == R.id.action_bookmark) {
             viewModel.setBookmark()
             return true
