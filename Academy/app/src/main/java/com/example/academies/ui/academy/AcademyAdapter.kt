@@ -33,7 +33,7 @@ class AcademyAdapter : RecyclerView.Adapter<AcademyAdapter.CourseViewHolder>(){
         }
     }
 
-    fun setCourses(courses:List<CourseEntity>){
+    fun setCourses(courses:List<CourseEntity>?){
         if(courses == null)return
         this.listCourses.clear()
         this.listCourses.addAll(courses)
