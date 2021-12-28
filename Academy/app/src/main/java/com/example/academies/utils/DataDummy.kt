@@ -1,6 +1,8 @@
 package com.example.academies.utils
 
+import com.example.academies.data.source.local.entity.ContentEntity
 import com.example.academies.data.source.local.entity.CourseEntity
+import com.example.academies.data.source.local.entity.CourseWithModule
 import com.example.academies.data.source.local.entity.ModuleEntity
 import com.example.academies.data.source.remote.response.ContentResponse
 import com.example.academies.data.source.remote.response.CourseResponse
@@ -8,7 +10,23 @@ import com.example.academies.data.source.remote.response.ModuleResponse
 
 object DataDummy {
 
+    fun generateRemoteDummyContent(moduleId: String): ContentResponse =
+        ContentResponse(moduleId, "This is a dummy content")
+
+    fun generateDummyCourseWithModules(course: CourseEntity, bookmarked: Boolean): CourseWithModule {
+        course.bookmarked = bookmarked
+        return CourseWithModule(course, generateDummyModules(course.courseId))
+    }
+    fun generateDummyContent(moduleId: String): ContentEntity =
+        ContentEntity("This is a dummy content")
+    fun generateDummyModuleWithContent(courseId: String): ModuleEntity {
+        val moduleEntity = generateDummyModules(courseId)[0]
+        moduleEntity.contentEntity = generateDummyContent(moduleEntity.moduleId)
+        return moduleEntity
+    }
+
     fun generateRemoteDummyCourses(): List<CourseResponse> {
+
         val courses = ArrayList<CourseResponse>()
         courses.add(CourseResponse("a14",
             "Menjadi Android Developer Expert",
@@ -71,10 +89,6 @@ object DataDummy {
             "Bedah Kode 2",
             6))
         return modules
-    }
-
-    fun generateRemoteDummyContent(moduleId: String): ContentResponse {
-        return ContentResponse(moduleId, "This is a dummy content")
     }
 
     fun generateDummyCourses(): List<CourseEntity> {
