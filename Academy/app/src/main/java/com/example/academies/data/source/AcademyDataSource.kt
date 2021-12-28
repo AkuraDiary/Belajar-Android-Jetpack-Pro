@@ -1,8 +1,8 @@
 package com.example.academies.data.source
 
 import androidx.lifecycle.LiveData
-import com.example.academies.data.CourseEntity
-import com.example.academies.data.ModuleEntity
+import com.example.academies.data.source.local.entity.CourseEntity
+import com.example.academies.data.source.local.entity.ModuleEntity
 
 interface AcademyDataSource {
     fun getAllCourses(): LiveData<List<CourseEntity>>

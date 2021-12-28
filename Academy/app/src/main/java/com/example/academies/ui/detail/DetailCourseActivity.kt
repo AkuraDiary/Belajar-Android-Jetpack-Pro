@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.academies.R
-import com.example.academies.data.CourseEntity
+import com.example.academies.data.source.local.entity.CourseEntity
 import com.example.academies.databinding.ActivityDetailCourseBinding
 import com.example.academies.databinding.ContentDetailCourseBinding
 import com.example.academies.ui.reader.CourseReaderActivity

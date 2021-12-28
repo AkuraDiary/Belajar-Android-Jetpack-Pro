@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.academies.data.ModuleEntity
+import com.example.academies.data.source.local.entity.ModuleEntity
 import com.example.academies.databinding.FragmentModuleListBinding
 import com.example.academies.ui.reader.CourseReaderActivity
 import com.example.academies.ui.reader.CourseReaderCallback
 import com.example.academies.ui.reader.CourseReaderViewModel
-import com.example.academies.utils.DataDummy
 import com.example.academies.viewmodel.ViewModelFactory
 
 class ModuleListFragment : Fragment(), MyAdapterClickListener {

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.academies.R
-import com.example.academies.data.CourseEntity
+import com.example.academies.data.source.local.entity.CourseEntity
 import com.example.academies.databinding.FragmentBookmarkBinding
 import com.example.academies.viewmodel.ViewModelFactory
 

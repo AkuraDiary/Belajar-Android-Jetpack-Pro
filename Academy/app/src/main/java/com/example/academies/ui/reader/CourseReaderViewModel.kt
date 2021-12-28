@@ -2,7 +2,7 @@ package com.example.academies.ui.reader
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.academies.data.ModuleEntity
+import com.example.academies.data.source.local.entity.ModuleEntity
 import com.example.academies.data.source.AcademyRepository
 
 class CourseReaderViewModel(private val academyRepository: AcademyRepository):ViewModel() {

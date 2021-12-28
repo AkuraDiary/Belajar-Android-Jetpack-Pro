@@ -2,10 +2,9 @@ package com.example.academies.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.academies.data.CourseEntity
-import com.example.academies.data.ModuleEntity
+import com.example.academies.data.source.local.entity.CourseEntity
+import com.example.academies.data.source.local.entity.ModuleEntity
 import com.example.academies.data.source.AcademyRepository
-import com.example.academies.utils.DataDummy
 
 class DetailCourseViewModel (private val academyRepository: AcademyRepository) :ViewModel(){
     private lateinit var courseID: String

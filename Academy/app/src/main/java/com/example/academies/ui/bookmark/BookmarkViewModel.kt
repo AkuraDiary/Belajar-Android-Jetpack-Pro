@@ -2,7 +2,7 @@ package com.example.academies.ui.bookmark
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.academies.data.CourseEntity
+import com.example.academies.data.source.local.entity.CourseEntity
 import com.example.academies.data.source.AcademyRepository
 
 

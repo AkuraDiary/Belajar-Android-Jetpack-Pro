@@ -3,7 +3,7 @@ package com.example.academies.ui.academy
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.academies.data.CourseEntity
+import com.example.academies.data.source.local.entity.CourseEntity
 import com.example.academies.data.source.AcademyRepository
 import com.example.academies.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
