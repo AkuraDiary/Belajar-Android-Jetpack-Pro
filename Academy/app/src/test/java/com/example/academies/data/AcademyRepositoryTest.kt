@@ -41,8 +41,8 @@ class AcademyRepositoryTest {
 
     @Test
     fun getAllCourses() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, CourseEntity>
-        `when`(local.getAllCourses()).thenReturn(dataSourceFactory)
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<*, *>
+        `when`(local.getAllCourses()).thenReturn(dataSourceFactory as DataSource.Factory<Int, CourseEntity>?)
         academyRepository.getAllCourses()
 
         val courseEntities = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyCourses()))
@@ -65,8 +65,8 @@ class AcademyRepositoryTest {
 
     @Test
     fun getBookmarkedCourses() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, CourseEntity>
-        `when`(local.getBookmarkedCourses()).thenReturn(dataSourceFactory)
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<*, *>
+        `when`(local.getBookmarkedCourses()).thenReturn(dataSourceFactory as DataSource.Factory<Int, CourseEntity>?)
         academyRepository.getBookmarkedCourses()
 
         val courseEntities = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyCourses()))
@@ -79,7 +79,7 @@ class AcademyRepositoryTest {
     fun getContent() {
         val dummyEntity = MutableLiveData<ModuleEntity>()
         dummyEntity.value = DataDummy.generateDummyModuleWithContent(moduleId)
-        `when`<LiveData<ModuleEntity>>(local.getModuleWithContent(courseId)).thenReturn(dummyEntity)
+        `when`(local.getModuleWithContent(courseId)).thenReturn(dummyEntity)
 
         val courseEntitiesContent = LiveDataTestUtil.getValue(academyRepository.getContent(courseId))
         verify(local).getModuleWithContent(courseId)
@@ -94,7 +94,7 @@ class AcademyRepositoryTest {
     fun getCourseWithModules() {
         val dummyEntity = MutableLiveData<CourseWithModule>()
         dummyEntity.value = DataDummy.generateDummyCourseWithModules(DataDummy.generateDummyCourses()[0], false)
-        `when`<LiveData<CourseWithModule>>(local.getCourseWithModules(courseId)).thenReturn(dummyEntity)
+        `when`(local.getCourseWithModules(courseId)).thenReturn(dummyEntity)
 
         val courseEntities = LiveDataTestUtil.getValue(academyRepository.getCourseWithModules(courseId))
         verify(local).getCourseWithModules(courseId)
