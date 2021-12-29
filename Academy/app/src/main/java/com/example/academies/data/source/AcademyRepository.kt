@@ -71,7 +71,31 @@ class AcademyRepository private constructor(
     }
 
     override fun getCourseWithModules(courseId: String): LiveData<Resource<CourseWithModule>> {
-        TODO("Not yet implemented")
+        return object : NetworkBoundResource<CourseWithModule, List<ModuleResponse>>(appExecutors) {
+            override fun loadFromDB(): LiveData<CourseWithModule> =
+                localDataSource.getCourseWithModules(courseId)
+
+            override fun shouldFetch(data: CourseWithModule?): Boolean =
+                data?.mModules == null || data.mModules.isEmpty()
+
+            override fun createCall(): LiveData<ApiResponse<List<ModuleResponse>>> =
+                remoteDataSource.getModules(courseId)
+
+            override fun saveCallResult(data: List<ModuleResponse>) {
+                val moduleList = ArrayList<ModuleEntity>()
+                for (response in data) {
+                    val course = ModuleEntity(response.moduleId,
+                        response.courseId,
+                        response.title,
+                        response.position,
+                        false)
+
+                    moduleList.add(course)
+                }
+
+                localDataSource.insertModules(moduleList)
+            }
+        }.asLiveData()
     }
 
     override fun getBookmarkedCourses(): LiveData<PagedList<CourseEntity>> {
