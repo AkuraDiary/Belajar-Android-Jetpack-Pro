@@ -2,6 +2,7 @@
     memastikan rv_movie_placeholder berhasil ditampilkan
     memastikan dapat melakukan scroll list ke posisi terakhir dan kembali ke atas pada rv_movie_placeholder
     memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
+    memastikan tab TV SHOWS telah dipilih dengan melakukan klik di tab TV SHOWS
     memastikan rv_TV_placeholder berhasil ditampilkan
     memastikan dapat melakukan scroll list ke poisi terakhir dan kembali ke atas pada rv_TV_placeholder
 

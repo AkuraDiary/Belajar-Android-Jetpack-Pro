@@ -8,8 +8,7 @@ import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.example.submission2bajpdicoding.ui.activities.MainActivity
 import com.example.submission2bajpdicoding.utilities.EspressoIdlingResource
@@ -36,6 +35,7 @@ class MainActivityTest{
             perform(swipeDown())
             perform(swipeLeft())//geser
         }
+        onView(withText("TV SHOWS")).perform(click()) //untuk memastikan bahwa tab tvshow telah dipilih
 
         onView(withId(R.id.rv_TV_placeholder)).apply {
             check(matches(isDisplayed()))
