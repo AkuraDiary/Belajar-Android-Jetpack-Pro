@@ -5,17 +5,25 @@ import android.os.Bundle
 import com.example.academies.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
+    private var _activityHomeBinding: ActivityHomeBinding? = null
+    private val binding get() = _activityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val activityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(activityHomeBinding.root)
+        _activityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        activityHomeBinding.viewPager.adapter = sectionsPagerAdapter
-        activityHomeBinding.tabs.setupWithViewPager(activityHomeBinding.viewPager)
+        binding?.viewPager?.adapter = sectionsPagerAdapter
+        binding?.tabs?.setupWithViewPager(binding?.viewPager)
 
         supportActionBar?.elevation = 0f
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _activityHomeBinding = null
     }
 }

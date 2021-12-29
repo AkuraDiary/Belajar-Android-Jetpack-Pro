@@ -1,4 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fab_margin">48dp</dimen>
     <dimen name="activity_horizontal_margin">600</dimen>
 </resources>

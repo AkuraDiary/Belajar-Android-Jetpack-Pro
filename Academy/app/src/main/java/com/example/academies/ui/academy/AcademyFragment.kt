@@ -34,13 +34,13 @@ class AcademyFragment : Fragment() {
             viewModel.getCourses().observe(viewLifecycleOwner, { courses ->
                 if (courses != null) {
                     when (courses.status) {
-                        Status.LOADING -> fragmentAcademyBinding.progressBar.visibility = View.VISIBLE
+                        Status.LOADING -> fragmentAcademyBinding.progressBarContent.visibility = View.VISIBLE
                         Status.SUCCESS -> {
-                            fragmentAcademyBinding.progressBar.visibility = View.GONE
+                            fragmentAcademyBinding.progressBarContent.visibility = View.GONE
                             academyAdapter.submitList(courses.data)
                         }
                         Status.ERROR -> {
-                            fragmentAcademyBinding.progressBar.visibility = View.GONE
+                            fragmentAcademyBinding.progressBarContent.visibility = View.GONE
                             Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                         }
                     }

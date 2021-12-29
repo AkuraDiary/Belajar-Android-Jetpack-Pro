@@ -41,9 +41,9 @@ class ModuleContentFragment : Fragment() {
             viewModel.selectedModule.observe(viewLifecycleOwner, { moduleEntity ->
                 if (moduleEntity != null) {
                     when (moduleEntity.status) {
-                        Status.LOADING -> fragmentModuleContentBinding.progressBar.visibility = View.VISIBLE
+                        Status.LOADING -> fragmentModuleContentBinding.progressBarContent.visibility = View.VISIBLE
                         Status.SUCCESS -> if (moduleEntity.data != null) {
-                            binding.progressBar.visibility = View.GONE
+                            binding.progressBarContent.visibility = View.GONE
                             if (moduleEntity.data.contentEntity != null) {
                                 populateWebView(moduleEntity.data)
                             }
@@ -53,7 +53,7 @@ class ModuleContentFragment : Fragment() {
                             }
                         }
                         Status.ERROR -> {
-                            binding.progressBar.visibility = View.GONE
+                            binding.progressBarContent.visibility = View.GONE
                             Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                         }
                     }

@@ -48,13 +48,13 @@ class ModuleListFragment : Fragment(), MyAdapterClickListener {
         viewModel.modules.observe(viewLifecycleOwner, { moduleEntities ->
             if (moduleEntities != null) {
                 when (moduleEntities.status) {
-                    Status.LOADING -> binding.progressBar.visibility = View.VISIBLE
+                    Status.LOADING -> binding.progressBarContent.visibility = View.VISIBLE
                     Status.SUCCESS -> {
-                        binding.progressBar.visibility = View.GONE
+                        binding.progressBarContent.visibility = View.GONE
                         populateRecyclerView(moduleEntities.data as List<ModuleEntity>)
                     }
                     Status.ERROR -> {
-                        binding.progressBar.visibility = View.GONE
+                        binding.progressBarContent.visibility = View.GONE
                         Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -74,7 +74,7 @@ class ModuleListFragment : Fragment(), MyAdapterClickListener {
 
     private fun populateRecyclerView(modules: List<ModuleEntity>) {
         with(fragmentModuleListBinding) {
-            progressBar.visibility = View.GONE
+            progressBarContent.visibility = View.GONE
             adapter.setModules(modules)
             rvModule.layoutManager = LinearLayoutManager(context)
             rvModule.setHasFixedSize(true)

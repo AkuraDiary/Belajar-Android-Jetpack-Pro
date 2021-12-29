@@ -1,11 +1,9 @@
 package com.example.academies.data.source
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.example.academies.data.source.local.LocalDataSource
-import com.example.academies.data.source.local.entity.ContentEntity
 import com.example.academies.data.source.local.entity.CourseEntity
 import com.example.academies.data.source.local.entity.CourseWithModule
 import com.example.academies.data.source.local.entity.ModuleEntity
@@ -112,15 +110,15 @@ class AcademyRepository private constructor(
             override fun loadFromDB(): LiveData<List<ModuleEntity>> =
                 localDataSource.getAllModulesByCourse(courseId)
 
-            override fun shouldFetch(modules: List<ModuleEntity>?): Boolean =
-                modules == null || modules.isEmpty()
+            override fun shouldFetch(data: List<ModuleEntity>?): Boolean =
+                data == null || data.isEmpty()
 
             override fun createCall(): LiveData<ApiResponse<List<ModuleResponse>>> =
                 remoteDataSource.getModules(courseId)
 
-            override fun saveCallResult(moduleResponses: List<ModuleResponse>) {
+            override fun saveCallResult(data: List<ModuleResponse>) {
                 val moduleList = ArrayList<ModuleEntity>()
-                for (response in moduleResponses) {
+                for (response in data) {
                     val course = ModuleEntity(response.moduleId,
                         response.courseId,
                         response.title,
@@ -142,14 +140,14 @@ class AcademyRepository private constructor(
             override fun loadFromDB(): LiveData<ModuleEntity> =
                 localDataSource.getModuleWithContent(moduleId)
 
-            override fun shouldFetch(moduleEntity: ModuleEntity?): Boolean =
-                moduleEntity?.contentEntity == null
+            override fun shouldFetch(data: ModuleEntity?): Boolean =
+                data?.contentEntity == null
 
             override fun createCall(): LiveData<ApiResponse<ContentResponse>> =
                 remoteDataSource.getContent(moduleId)
 
-            override fun saveCallResult(contentResponse: ContentResponse) =
-                localDataSource.updateContent(contentResponse.content.toString(), moduleId)
+            override fun saveCallResult(data: ContentResponse) =
+                localDataSource.updateContent(data.content, moduleId)
         }.asLiveData()
     }
 
