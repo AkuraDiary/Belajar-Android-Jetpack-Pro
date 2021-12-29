@@ -39,12 +39,37 @@ class DetailCourseViewModelTest {
     }
 
     @Test
-    fun getCourseWithModule() {
-        val dummyCourseWithModule = Resource.success(DataDummy.generateDummyCourseWithModules(dummyCourse, true))
-        val course = MutableLiveData<Resource<CourseWithModule>>()
-        course.value = dummyCourseWithModule
-        `when`(academyRepository.getCourseWithModules(courseId)).thenReturn(course)
+    fun `setSelectedCourse should be success`() {
+        val expected = MutableLiveData<Resource<CourseWithModule>>()
+        expected.value = Resource.success(DataDummy.generateDummyCourseWithModules(dummyCourse, true))
+
+        `when`(academyRepository.getCourseWithModules(courseId)).thenReturn(expected)
+
         viewModel.courseModule.observeForever(observer)
-        verify(observer).onChanged(dummyCourseWithModule)
+
+        verify(observer).onChanged(expected.value)
+
+        val expectedValue = expected.value
+        val actualValue = viewModel.courseModule.value
+
+        assertEquals(expectedValue, actualValue)
+    }
+
+    @Test
+    fun `setBookmark should be success trigger courseModule observer`() {
+        val expected = MutableLiveData<Resource<CourseWithModule>>()
+        expected.value = Resource.success(DataDummy.generateDummyCourseWithModules(dummyCourse, true))
+
+        `when`(academyRepository.getCourseWithModules(courseId)).thenReturn(expected)
+
+        viewModel.setBookmark()
+        viewModel.courseModule.observeForever(observer)
+
+        verify(observer).onChanged(expected.value)
+
+        val expectedValue = expected.value
+        val actualValue = viewModel.courseModule.value
+
+        assertEquals(expectedValue, actualValue)
     }
 }

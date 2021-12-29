@@ -29,14 +29,13 @@ class CourseReaderViewModelTest {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Mock
+    private lateinit var academyRepository: AcademyRepository
+
+    @Mock
     private lateinit var modulesObserver: Observer<Resource<List<ModuleEntity>>>
 
     @Mock
     private lateinit var moduleObserver: Observer<Resource<ModuleEntity>>
-
-    @Mock
-    private lateinit var academyRepository: AcademyRepository
-
 
     @Before
     fun setUp() {
@@ -51,13 +50,12 @@ class CourseReaderViewModelTest {
     @Test
     fun getModules() {
         val modules = MutableLiveData<Resource<List<ModuleEntity>>>()
-        val resource = Resource.success(dummyModules) as Resource<List<ModuleEntity>>
+        val resource = Resource.success(dummyModules)
         modules.value = resource
         `when`(academyRepository.getAllModulesByCourse(courseId)).thenReturn(modules)
 
-        val observer = mock(Observer::class.java) as Observer<Resource<List<ModuleEntity>>>
-        viewModel.modules.observeForever(observer)
-        verify(observer).onChanged(resource)
+        viewModel.modules.observeForever(modulesObserver)
+        verify(modulesObserver).onChanged(resource)
     }
 
     @Test
@@ -67,8 +65,7 @@ class CourseReaderViewModelTest {
         module.value = resource
         `when`(academyRepository.getContent(moduleId)).thenReturn(module)
 
-        val observer = mock(Observer::class.java) as Observer<Resource<ModuleEntity>>
-        viewModel.selectedModule.observeForever(observer)
-        verify(observer).onChanged(resource)
+        viewModel.selectedModule.observeForever(moduleObserver)
+        verify(moduleObserver).onChanged(resource)
     }
 }
