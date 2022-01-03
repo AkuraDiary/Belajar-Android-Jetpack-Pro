@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.mainToolbar.title = getString(R.string.app_name)
 
         activityMainBinding.mainViewPager.adapter = pagerSectionAdapter
-        //activityMainBinding.mainToolbar.title = getString(R.string.app_name)
 
         activityMainBinding.mainToolbar.setTitleTextColor(Color.WHITE)
         activityMainBinding.mainTabs.setTabTextColors(Color.WHITE, Color.CYAN)

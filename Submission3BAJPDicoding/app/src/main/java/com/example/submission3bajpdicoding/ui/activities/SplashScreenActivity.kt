@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.submission3bajpdicoding.databinding.ActivitySplashscreenBinding
 
 @SuppressLint("CustomSplashScreen")
-class Splashscreen : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var bindingSplash : ActivitySplashscreenBinding
 
@@ -25,7 +25,7 @@ class Splashscreen : AppCompatActivity() {
                     /* simulating some workloads here */
 
                     //continue into next activity
-                    val intent = Intent(this@Splashscreen, MainActivity::class.java)
+                    val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
                     startActivity(intent)
                 }catch (e : Exception){
                     e.printStackTrace()

@@ -47,6 +47,14 @@ class RemoteDataSource {
         })
     }
 
+
+    interface LoadMovieCallback{
+        fun onAllMoviesReceived(movieItemResponse: List<MovieItem>?)
+    }
+
+    interface LoadTVCallback{
+        fun onAllTvShowsReceived(tvItemResponse: List<TvShowItems>?)
+    }
     companion object{
         private val TAG : String = RemoteDataSource::class.java.simpleName
 
@@ -56,13 +64,5 @@ class RemoteDataSource {
         fun getInstance(): RemoteDataSource = instance ?: synchronized(this){
             instance ?: RemoteDataSource()
         }
-    }
-
-    interface LoadMovieCallback{
-        fun onAllMoviesReceived(movieItemResponse: List<MovieItem>?)
-    }
-
-    interface LoadTVCallback{
-        fun onAllTvShowsReceived(tvItemResponse: List<TvShowItems>?)
     }
 }
