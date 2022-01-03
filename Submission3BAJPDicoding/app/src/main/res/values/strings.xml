@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Submission3BAJPDicoding</string>
+    <string name="poster">tempat deskripsi poster</string>
+    <string name="text_title">Ini Judul</string>
+    <string name="text_release">tanggal rilis</string>
+    <string name="text_popularity">durasi</string>
+    <string name="text_originalTitle">Original Title</string>
+    <string name="text_score">score</string>
+    <string name="overview">Sinopsis</string>
+    <string name="text_overview">ini overview</string>
+    <string name="text_tv_show">TV Shows</string>
+    <string name="text_movie">Movies</string>
+    <string name="baseUrl_Poster">https://image.tmdb.org/t/p/w500%s</string>
+</resources>
