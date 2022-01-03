@@ -11,4 +11,5 @@
     <string name="text_tv_show">TV Shows</string>
     <string name="text_movie">Movies</string>
     <string name="baseUrl_Poster">https://image.tmdb.org/t/p/w500%s</string>
+    <string name="icon_favorite_content_desc">icon favorite</string>
 </resources>
