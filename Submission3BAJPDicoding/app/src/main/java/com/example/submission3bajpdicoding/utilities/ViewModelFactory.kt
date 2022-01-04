@@ -3,7 +3,6 @@ package com.example.submission3bajpdicoding.utilities
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.submission3bajpdicoding.data.source.ItemsRepository
-import com.example.submission3bajpdicoding.di.DataInjection
 import com.example.submission3bajpdicoding.ui.detail.DetailViewModel
 import com.example.submission3bajpdicoding.ui.movies.MovieViewModel
 import com.example.submission3bajpdicoding.ui.tvShows.TvViewModel

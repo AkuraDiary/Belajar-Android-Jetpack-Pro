@@ -9,7 +9,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.submission2bajpdicoding"
+        applicationId 'com.example.submission3bajpdicoding'
         minSdk 28
         targetSdk 31
         versionCode 1
@@ -89,8 +89,9 @@ dependencies {
     kapt("androidx.room:room-compiler:2.4.0")
 
     //coin
-    implementation "org.koin:koin-android:2.2.2"
-    implementation "org.koin:koin-androidx-viewmodel:2.2.2"
+    implementation "io.insert-koin:koin-android:3.1.4"
+    implementation "io.insert-koin:koin-androidx-viewmodel:3.1.4"
+    //implementation "org.koin:koin-androidx-viewmodel:2.2.2"
 
     //paging
     implementation "androidx.paging:paging-runtime-ktx:3.1.0"
