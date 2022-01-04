@@ -1,6 +1,9 @@
 package com.example.submission3bajpdicoding.data.source.remote
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.data.source.remote.response.MovieItem
 import com.example.submission3bajpdicoding.data.source.remote.response.MovieResponse
 import com.example.submission3bajpdicoding.data.source.remote.response.TvShowItems
@@ -14,37 +17,45 @@ import retrofit2.Response
 
 class RemoteDataSource {
 
-    fun getMovies(callback : LoadMovieCallback){
+    fun getMovies(): LiveData<ApiResponse<List<MovieItem>>> {
         EspressoIdlingResource.increment()
-        NetworkClient.getApiService().getMovies().enqueue(object : Callback<MovieResponse>{
+        val resultMovie = MutableLiveData<ApiResponse<List<MovieItem>>>()
+        NetworkClient.getApiService().getMovies().enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                callback.onAllMoviesReceived(response.body()?.results)
+                val result = response.body()?.results
+                if (result != null) {
+                    resultMovie.postValue(ApiResponse.success(result))
+                }
                 EspressoIdlingResource.decrement()
             }
 
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                Log.e(TAG, "onFailure: ${t.message.toString()}")
                 EspressoIdlingResource.decrement()
             }
         })
+        return resultMovie
     }
 
-    fun getTvShow(callback: LoadTVCallback){
+    fun getTvShow(): LiveData<ApiResponse<List<TvShowItem>>> {
         EspressoIdlingResource.increment()
-        NetworkClient.getApiService().getTVShow().enqueue(object  : Callback<TvShowResponse>{
+        val resultTvShow = MutableLiveData<ApiResponse<List<TvShowItem>>>()
+        NetworkClient.getApiService().getTvShow().enqueue(object : Callback<TvShowResponse> {
             override fun onResponse(
                 call: Call<TvShowResponse>,
                 response: Response<TvShowResponse>
             ) {
-                callback.onAllTvShowsReceived(response.body()?.results)
+                val result = response.body()?.results
+                if (result != null) {
+                    resultTvShow.postValue(ApiResponse.success(result))
+                }
                 EspressoIdlingResource.decrement()
             }
 
             override fun onFailure(call: Call<TvShowResponse>, t: Throwable) {
-                Log.e(TAG, "onFailure: ${t.message.toString()}")
                 EspressoIdlingResource.decrement()
             }
         })
+        return resultTvShow
     }
 
 

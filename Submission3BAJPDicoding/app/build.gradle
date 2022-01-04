@@ -83,10 +83,17 @@ dependencies {
     //Database
     implementation "androidx.room:room-runtime:2.4.0"
     annotationProcessor "androidx.room:room-compiler:2.4.0"
+    kapt "androidx.room:room-compiler:2.4.0"
 
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:2.4.0")
 
+    //coin
+    implementation "org.koin:koin-android:2.2.2"
+    implementation "org.koin:koin-androidx-viewmodel:2.2.2"
+
+    //paging
+    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
 
     //Idling Resource
     implementation "androidx.test.espresso:espresso-idling-resource:3.4.0"
