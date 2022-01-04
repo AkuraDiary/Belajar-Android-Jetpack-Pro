@@ -24,10 +24,10 @@ interface ItemsDao {
     fun getTvShowById(tvShowId: Int): LiveData<Items>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertDataMovie(movies: List<Items>)
+    fun insertItemData(movies: List<Items>)
 
     @Update
-    fun updateDataMovie(movies: Items)
+    fun updateItemData(movies: Items)
 
     @Query("SELECT * FROM tabel_items WHERE isFavorite = 1 AND isTvShow = 0")
     fun getFavoriteMovies(): DataSource.Factory<Int, Items>

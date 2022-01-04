@@ -1,7 +1,9 @@
-package com.example.submission3bajpdicoding.data.source.remote
+package com.example.submission3bajpdicoding.data.source
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import com.example.submission3bajpdicoding.data.source.remote.ApiResponse
+import com.example.submission3bajpdicoding.data.source.remote.StatusResponse
 import com.example.submission3bajpdicoding.utilities.AppExecutors
 import com.example.submission3bajpdicoding.vo.Resource
 
