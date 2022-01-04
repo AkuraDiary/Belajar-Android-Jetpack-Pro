@@ -18,5 +18,5 @@ interface ItemsDataSource {
 
     fun getFavoriteTvShow(): LiveData<PagedList<Items>>
 
-    fun setMovieFavorite(movie: Items, state: Boolean)
+    fun setToFavorite(item: Items, state: Boolean)
 }

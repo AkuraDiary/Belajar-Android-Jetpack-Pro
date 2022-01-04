@@ -3,10 +3,9 @@ package com.example.submission3bajpdicoding.data.source.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.data.source.remote.response.MovieItem
-import com.example.submission3bajpdicoding.data.source.remote.response.MovieResponse
 import com.example.submission3bajpdicoding.data.source.remote.response.TvShowItems
+import com.example.submission3bajpdicoding.data.source.remote.response.MovieResponse
 import com.example.submission3bajpdicoding.data.source.remote.response.TvShowResponse
 import com.example.submission3bajpdicoding.networking.NetworkClient
 import com.example.submission3bajpdicoding.utilities.EspressoIdlingResource
@@ -36,10 +35,10 @@ class RemoteDataSource {
         return resultMovie
     }
 
-    fun getTvShow(): LiveData<ApiResponse<List<TvShowItem>>> {
+    fun getTvShow(): LiveData<ApiResponse<List<TvShowItems>>> {
         EspressoIdlingResource.increment()
-        val resultTvShow = MutableLiveData<ApiResponse<List<TvShowItem>>>()
-        NetworkClient.getApiService().getTvShow().enqueue(object : Callback<TvShowResponse> {
+        val resultTvShow = MutableLiveData<ApiResponse<List<TvShowItems>>>()
+        NetworkClient.getApiService().getTVShow().enqueue(object : Callback<TvShowResponse> {
             override fun onResponse(
                 call: Call<TvShowResponse>,
                 response: Response<TvShowResponse>

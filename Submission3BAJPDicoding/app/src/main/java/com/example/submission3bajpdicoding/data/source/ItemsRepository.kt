@@ -3,14 +3,13 @@ package com.example.submission3bajpdicoding.data.source
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
 import com.example.submission3bajpdicoding.data.source.local.LocalDataSource
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.data.source.remote.ApiResponse
 import com.example.submission3bajpdicoding.data.source.remote.NetworkBoundResource
 import com.example.submission3bajpdicoding.data.source.remote.RemoteDataSource
 import com.example.submission3bajpdicoding.data.source.remote.response.MovieItem
+import com.example.submission3bajpdicoding.data.source.remote.response.TvShowItems
 import com.example.submission3bajpdicoding.utilities.AppExecutors
 import com.example.submission3bajpdicoding.vo.Resource
 
@@ -57,7 +56,7 @@ class ItemsRepository(
                     )
                     movieList.add(movie)
                 }
-                localDataSource.insertMovie(movieList)
+                localDataSource.insertItems(movieList)
             }
         }.asLiveData()
     }
@@ -95,40 +94,113 @@ class ItemsRepository(
                         )
                     }
                 }
-                localDataSource.updateMovie(movieItem)
+                localDataSource.updateItems(movieItem)
             }
         }.asLiveData()
     }
 
     override fun getAllTvShows(sort : String): LiveData<Resource<PagedList<Items>>> {
-        TODO("Not yet implemented")
+        return object :
+        NetworkBoundResource<PagedList<Items>, List<TvShowItems>>(appExecutors){
+            override fun loadFromDB(): LiveData<PagedList<Items>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSource.getAllTvShows(sort), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<Items>?): Boolean {
+                return data == null || data.isEmpty()
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<TvShowItems>>> {
+                return remoteDataSource.getTvShow()
+            }
+
+            override fun saveCallResult(data: List<TvShowItems>) {
+                val tvList = ArrayList<Items>()
+                for(response in data){
+                    val tv = Items(
+                        response.id,
+                        response.name,
+                        response.firstAirDate,
+                        response.originalTitle,
+                        response.popularity,
+                        response.voteAverage,
+                        response.overview,
+                        response.posterPath,
+                        isFavorite = false,
+                        isTvShow = true
+                    )
+                    tvList.add(tv)
+                }
+                localDataSource.insertItems(tvList)
+            }
+        }.asLiveData()
     }
 
     override fun getTvShowsById(Id: Int): LiveData<Resource<Items>> {
-        TODO("Not yet implemented")
+        return object :
+        NetworkBoundResource<Items, List<TvShowItems>>(appExecutors){
+            override fun loadFromDB(): LiveData<Items> {
+                return localDataSource.getTvShow(Id)
+            }
+
+            override fun shouldFetch(data: Items?): Boolean {
+                return data ==null
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<TvShowItems>>> {
+                return remoteDataSource.getTvShow()
+            }
+
+            override fun saveCallResult(data: List<TvShowItems>) {
+                lateinit var item : Items
+                for(tv in data){
+                    if(Id == tv.id){
+                        item = Items(
+                            tv.id,
+                            tv.name,
+                            tv.firstAirDate,
+                            tv.originalTitle,
+                            tv.popularity,
+                            tv.voteAverage,
+                            tv.overview,
+                            tv.posterPath,
+                            isFavorite = false,
+                            isTvShow = true
+                        )
+                    }
+                }
+                localDataSource.updateItems(item)
+            }
+        }.asLiveData()
     }
 
     override fun getFavoriteMovies(): LiveData<PagedList<Items>> {
-        TODO("Not yet implemented")
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localDataSource.getAllfavoriteMovies(), config).build()
     }
 
     override fun getFavoriteTvShow(): LiveData<PagedList<Items>> {
-        TODO("Not yet implemented")
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localDataSource.getAllFavoriteTvShow(), config).build()
     }
 
-    override fun setMovieFavorite(movie: Items, state: Boolean) {
-        TODO("Not yet implemented")
+    override fun setToFavorite(item: Items, state: Boolean) {
+        return appExecutors.diskIO().execute{
+            localDataSource.setFavorite(item, state)
+        }
     }
 
-    /*
-    companion object {
-        @Volatile
-        private var instance: ItemsRepository? = null
-
-        fun getInstance(dataSource: RemoteDataSource): ItemsRepository =
-            instance ?: synchronized(this) {
-                instance ?: ItemsRepository(dataSource)
-            }
-    }
-*/
 }

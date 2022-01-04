@@ -26,14 +26,14 @@ class LocalDataSource(private val mItemsDao : ItemsDao) {
 
     fun setFavorite(item : Items, state:Boolean){
         item.isFavorite = state
-        mItemsDao.updateDataMovie(item)
+        mItemsDao.updateItemData(item)
     }
 
     fun getMovie(movieId: Int): LiveData<Items> = mItemsDao.getMovieById(movieId)
 
     fun getTvShow(tvShowId: Int): LiveData<Items> = mItemsDao.getTvShowById(tvShowId)
 
-    fun insertMovie(movies: List<Items>) = mItemsDao.insertDataMovie(movies)
+    fun insertItems(movies: List<Items>) = mItemsDao.insertItemData(movies)
 
-    fun updateMovie(movie: Items) = mItemsDao.updateDataMovie(movie)
+    fun updateItems(movie: Items) = mItemsDao.updateItemData(movie)
 }
