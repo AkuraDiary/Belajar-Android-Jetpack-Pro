@@ -13,6 +13,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:fitsSystemWindows="true">
 
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
@@ -25,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/dark_blue">
+
 
                 <ImageView
                     android:id="@+id/poster_big_placeholder"
@@ -76,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp">
-            
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/poster_cardView"
                 android:layout_width="match_parent"
@@ -103,7 +105,18 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="@string/text_title" />
 
+                    <ImageView
+                        android:id="@+id/FavoriteButton"
+                        android:layout_width="41dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="end"
+                        android:contentDescription="@string/icon_favorite_content_desc"
+                        android:src="@drawable/ic_favorite"
+                        tools:layout_editor_absoluteX="346dp"
+                        tools:layout_editor_absoluteY="-2dp" />
+
                     <View
+                        android:id="@+id/view"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
@@ -180,6 +193,7 @@
                             android:textSize="18sp"
                             tools:text="@string/text_score" />
                     </androidx.cardview.widget.CardView>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

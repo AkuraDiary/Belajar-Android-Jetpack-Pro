@@ -1,4 +1,4 @@
-package com.example.submission3bajpdicoding.ui.tvShows
+package com.example.submission3bajpdicoding.ui.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -41,8 +41,10 @@ class TvShowAdapter : PagedListAdapter<Items, TvShowAdapter.TvShowViewHolder>(DI
 
                 itemView.setOnClickListener{
                     val intent = Intent(itemView.context, DetailsActivity::class.java).apply {
-                        putExtra(ID = )
+                        putExtra(DetailsActivity.ID, tvShow.id)
+                        putExtra(DetailsActivity.JUDUL, tvShow.title)
                     }
+                    itemView.context.startActivity(intent)
                 }
             }
         }

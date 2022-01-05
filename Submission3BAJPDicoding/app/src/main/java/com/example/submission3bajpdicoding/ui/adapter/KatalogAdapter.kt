@@ -58,6 +58,8 @@ class KatalogAdapter(private val idAdapter : Int): RecyclerView.Adapter<KatalogA
             }
         }
     }
+
+
 }
 
 
