@@ -11,5 +11,4 @@ class TvViewModel(private val itemsRepository: ItemsRepository): ViewModel() {
     fun getTVShows(sort : String) : LiveData<Resource<PagedList<Items>>> {
         return itemsRepository.getAllTvShows(sort)
     }
-
 }

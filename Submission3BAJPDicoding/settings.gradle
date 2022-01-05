@@ -5,5 +5,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Submission2BAJPDicoding"
+rootProject.name = "Submission3BAJPDicoding"
 include ':app'

@@ -3,10 +3,10 @@ package com.example.submission3bajpdicoding.ui.adapter
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.submission3bajpdicoding.databinding.ListItemLayoutBinding
-import androidx.paging.PagedListAdapter
 import com.bumptech.glide.Glide
 import com.example.submission3bajpdicoding.R
 import com.example.submission3bajpdicoding.data.source.local.entity.Items

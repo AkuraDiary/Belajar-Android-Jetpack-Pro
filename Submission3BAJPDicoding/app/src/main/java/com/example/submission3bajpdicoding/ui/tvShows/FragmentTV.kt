@@ -33,11 +33,14 @@ class FragmentTV : Fragment(){
     private val tvShowObserver = Observer<Resource<PagedList<Items>>>{ tvShow ->
         if (tvShow != null){
             when(tvShow.status){
+                Status.LOADING -> binding.progressBar.visibility = View.VISIBLE
                 Status.SUCCESS -> {
+                    binding.progressBar.visibility = View.GONE
                     _adapter.submitList(tvShow.data)
                     _adapter.notifyDataSetChanged()
                 }
                 Status.ERROR->{
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -53,22 +56,6 @@ class FragmentTV : Fragment(){
             this.setHasFixedSize(true)
             this.adapter = _adapter
         }
-
-
-        /*if(activity != null){
-            val factory = ViewModelFactory.getInstance()
-            val viewModel = ViewModelProvider(this, factory)[TvViewModel::class.java]
-            val tvAdapter = KatalogAdapter(EXTRA_CLICK_TV)
-            viewModel.getTVShows().observe(viewLifecycleOwner, {items ->
-                tvAdapter.setAll(items)
-                tvAdapter.notifyDataSetChanged()
-            })
-            with(binding.rvTVPlaceholder){
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = tvAdapter
-            }
-        }*/
     }
 
     private fun setList(newest : String){
