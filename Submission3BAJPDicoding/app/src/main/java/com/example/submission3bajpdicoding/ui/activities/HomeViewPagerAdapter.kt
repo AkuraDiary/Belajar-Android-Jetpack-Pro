@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.submission3bajpdicoding.R
-import com.example.submission3bajpdicoding.ui.favorite.movie.FragmentMovie
+import com.example.submission3bajpdicoding.ui.movies.FragmentMovie
 import com.example.submission3bajpdicoding.ui.tvShows.FragmentTV
 
 class HomeViewPagerAdapter (private val context : Context, fragmentManager: FragmentManager)
@@ -16,9 +16,9 @@ class HomeViewPagerAdapter (private val context : Context, fragmentManager: Frag
         R.string.text_tv_show
     )
     private val fragment : List<Fragment> = listOf(
-        FragmentMovie(),
-        FragmentTV()
-    ) as List<Fragment>
+        FragmentTV(),
+        FragmentMovie()
+    )
 
     override fun getPageTitle(position: Int): CharSequence {
         return context.getString(tabListOf[position])

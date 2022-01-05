@@ -6,7 +6,6 @@ import androidx.paging.PagedList
 import com.example.submission3bajpdicoding.data.source.local.LocalDataSource
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.data.source.remote.ApiResponse
-import com.example.submission3bajpdicoding.data.source.remote.NetworkBoundResource
 import com.example.submission3bajpdicoding.data.source.remote.RemoteDataSource
 import com.example.submission3bajpdicoding.data.source.remote.response.MovieItem
 import com.example.submission3bajpdicoding.data.source.remote.response.TvShowItems
