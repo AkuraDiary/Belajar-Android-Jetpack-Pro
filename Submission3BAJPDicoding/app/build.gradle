@@ -91,10 +91,10 @@ dependencies {
     //coin
     implementation "io.insert-koin:koin-android:3.1.4"
     implementation "io.insert-koin:koin-androidx-viewmodel:3.1.4"
-    //implementation "org.koin:koin-androidx-viewmodel:2.2.2"
 
     //paging
-    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
+    //noinspection GradleDependency
+    implementation "androidx.paging:paging-runtime-ktx:2.1.2"
 
     //Idling Resource
     implementation "androidx.test.espresso:espresso-idling-resource:3.4.0"
