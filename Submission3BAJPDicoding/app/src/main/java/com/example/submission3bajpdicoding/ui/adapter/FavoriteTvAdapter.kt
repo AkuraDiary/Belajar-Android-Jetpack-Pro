@@ -28,6 +28,10 @@ class FavoriteTvAdapter : PagedListAdapter<Items, FavoriteTvAdapter.ViewHolder>(
         }
     }
 
+    fun getSwipedData(swipedPosition : Int):Items?{
+        return getItem(swipedPosition)
+    }
+
     inner class ViewHolder (private val binding : ListItemLayoutBinding):
     RecyclerView.ViewHolder(binding.root){
         fun bind(item:Items){
