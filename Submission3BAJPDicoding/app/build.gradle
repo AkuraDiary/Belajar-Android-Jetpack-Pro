@@ -90,7 +90,8 @@ dependencies {
 
     //coin
     implementation "io.insert-koin:koin-android:3.1.4"
-    implementation "io.insert-koin:koin-androidx-viewmodel:3.1.4"
+    //implementation "io.insert-koin:koin-android-viewmodel:3.1.4"
+    implementation "io.insert-koin:koin-core:3.1.4"
 
     //paging
     //noinspection GradleDependency
