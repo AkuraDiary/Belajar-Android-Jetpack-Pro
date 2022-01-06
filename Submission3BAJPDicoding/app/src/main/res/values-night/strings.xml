@@ -13,4 +13,6 @@
     <string name="text_movie">Movies</string>
     <string name="baseUrl_Poster">https://image.tmdb.org/t/p/w500%s</string>
     <string name="icon_favorite_content_desc">icon favorite</string>
+    <string name="favorite_movie_text">Favorite Movie</string>
+    <string name="favorite_tv_text">Favorite TV</string>
 </resources>
