@@ -12,42 +12,49 @@ import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.databinding.ListItemLayoutBinding
 import com.example.submission3bajpdicoding.ui.detail.DetailsActivity
 
-class MovieAdapter : PagedListAdapter<Items, MovieAdapter.MovieViewHolder>(DIFF_CALLBACK){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemListBinding = ListItemLayoutBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return MovieViewHolder(itemListBinding)
+class FavoriteMovieAdapter : PagedListAdapter<Items, FavoriteMovieAdapter.ViewHolder>(DIFF_CALLBACK){
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+         val listItemLayoutBinding = ListItemLayoutBinding.inflate(
+             LayoutInflater.from(parent.context), parent, false
+         )
+        return ViewHolder(listItemLayoutBinding)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val tvShow = getItem(position)
-        if(tvShow != null){
-            holder.bind(tvShow)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = getItem(position)
+        if(item != null){
+            holder.bind(item)
         }
     }
-    inner class MovieViewHolder (private val binding: ListItemLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root){
-        fun bind(tvShow : Items){
+
+    fun getSwipedData(swipedPosition:Int):Items?{
+        return getItem(swipedPosition)
+    }
+    inner class ViewHolder (private val binding : ListItemLayoutBinding) :
+    RecyclerView.ViewHolder(binding.root){
+        fun bind(item: Items){
             with(binding){
-                itemTitle.text = tvShow.title
-                itemOriginalTitle.text = tvShow.OriginalTitle
-                itemScore.text = tvShow.score.toString()
+                itemTitle.text = item.title
+                itemOriginalTitle.text = item.OriginalTitle
+                itemScore.text = item.score.toString()
+
                 Glide.with(itemView.context)
-                    .load(itemView.context.getString(R.string.baseUrl_Poster, tvShow.poster))
+                    .load(itemView.context.getString(R.string.baseUrl_Poster, item.poster))
                     .into(itemImage)
             }
-
             itemView.setOnClickListener{
                 val intent = Intent(itemView.context, DetailsActivity::class.java).apply {
-                    putExtra(DetailsActivity.ID, tvShow.id)
-                    putExtra(DetailsActivity.JUDUL, tvShow.title)
+                    putExtra(DetailsActivity.ID, item.id)
+                    putExtra(DetailsActivity.JUDUL, item.title)
                 }
                 itemView.context.startActivity(intent)
             }
         }
-    }
 
+
+    }
+    
     companion object{
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Items>() {
             override fun areItemsTheSame(oldItem: Items, newItem: Items): Boolean {
@@ -59,4 +66,5 @@ class MovieAdapter : PagedListAdapter<Items, MovieAdapter.MovieViewHolder>(DIFF_
             }
         }
     }
+
 }
