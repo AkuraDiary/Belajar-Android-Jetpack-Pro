@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailsActivity">
-    
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/AppBar"
         android:layout_width="match_parent"
@@ -78,6 +78,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/poster_cardView"
+                app:layout_constraintTop_toTopOf="@+id/poster_cardView" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/poster_cardView"
@@ -199,19 +208,21 @@
 
 
             <androidx.cardview.widget.CardView
-                android:background="@color/teal_200"
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:background="@color/teal_200"
                 app:cardCornerRadius="6dp"
                 app:cardElevation="4dp"
-                app:layout_constraintTop_toBottomOf="@id/poster_cardView">
+                app:layout_constraintTop_toBottomOf="@id/poster_cardView"
+                tools:layout_editor_absoluteX="8dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:background="@color/dark_blue">
+                    android:background="@color/dark_blue"
+                    android:padding="8dp">
 
                     <TextView
                         android:id="@+id/title_overview"
@@ -219,13 +230,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
-                        android:textSize="24sp"
                         android:text="@string/overview"
-                        android:textColor="@android:color/white"
                         android:textAlignment="center"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <View
                         android:id="@+id/views2"
@@ -233,21 +244,21 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/dark_blue"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/title_overview"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title_overview" />
 
                     <TextView
                         android:id="@+id/isi_overview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:textSize="18sp"
-                        android:textColor="@color/white"
                         android:fontFamily="serif-monospace"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/views2"
-                        tools:text="@string/text_overview"/>
+                        tools:text="@string/text_overview" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

@@ -4,24 +4,25 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import androidx.lifecycle.ViewModelProvider
 import com.example.submission3bajpdicoding.R
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.databinding.ActivityDetailsBinding
-import com.example.submission3bajpdicoding.ui.movies.FragmentMovie.Companion.EXTRA_CLICK_M
-import com.example.submission3bajpdicoding.ui.tvShows.FragmentTV.Companion.EXTRA_CLICK_TV
 import com.example.submission3bajpdicoding.utilities.DetailsDataBinding
 import com.example.submission3bajpdicoding.utilities.GlideApp
-import com.example.submission3bajpdicoding.utilities.ViewModelFactory
+import com.example.submission3bajpdicoding.vo.Resource
+import com.example.submission3bajpdicoding.vo.Status
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
     private lateinit var detailActivityViewBindng : ActivityDetailsBinding
-
+    private val viewModel: DetailViewModel by viewModel()
     private lateinit var collapsingToolbarLayout: CollapsingToolbarLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,26 +32,39 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
         collapseToolbarConfiguration()
 
-        val factory = ViewModelFactory.getInstance()
-        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+        //val factory = ViewModelFactory.getInstance()
+        //val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
         val id = intent.getIntExtra(ID, -1)
+        val typeEnum : DetailType = DetailType.values()[id]
 
-        when(intent.getIntExtra(CLICK_STATS, 0)){
-            EXTRA_CLICK_M -> {
-                viewModel.setSelectedMovie(id.toString())
-                viewModel.getSelectedMovie(id.toString()).observe(this, {
-                    setBinding(it)
+        when(typeEnum){
+            DetailType.MOVIE -> {
+                viewModel.setSelectedMovie(id)
+                viewModel.movieDetail.observe(this, {movie ->
+                    if (movie != null){
+                        showDetailData(movie)
+                    }
                 })
-                detailActivityViewBindng.posterBigPlaceholder.visibility = View.VISIBLE
-                detailActivityViewBindng.views2.visibility = View.VISIBLE
             }
-            EXTRA_CLICK_TV -> {
-                viewModel.setSelectedTV(id.toString())
-                viewModel.getSelectedTV(id.toString()).observe(this, {
-                    setBinding(it)
+            DetailType.TV_SHOW -> {
+                viewModel.setSelectedTV(id)
+                viewModel.tvDetail.observe(this, {tv ->
+                    if(tv != null){
+                        showDetailData(tv)
+                    }
                 })
-                detailActivityViewBindng.posterBigPlaceholder.visibility = View.VISIBLE
-                detailActivityViewBindng.views2.visibility = View.VISIBLE
+            }
+        }
+
+        detailActivityViewBindng.FavoriteButton.setOnClickListener{
+            when(typeEnum){
+                DetailType.MOVIE -> {
+                    viewModel.setFavoriteMovie()
+                }
+
+                DetailType.TV_SHOW -> {
+                    viewModel.setFavoriteTv()
+                }
             }
         }
     }
@@ -107,4 +121,37 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
         const val CLICK_STATS = "click"
         const val JUDUL = "title"
     }
+
+    private fun showDetailData(item : Resource<Items>){
+        when(item.status){
+            Status.LOADING -> detailActivityViewBindng.progressBar.visibility = View.VISIBLE
+            Status.SUCCESS -> if (item.data != null){
+                detailActivityViewBindng.progressBar.visibility = View.GONE
+                val state = item.data.isFavorite
+                setFavorite(state)
+                setBinding(item.data)
+            }
+            Status.ERROR -> {
+                detailActivityViewBindng.progressBar.visibility = View.GONE
+                Toast.makeText(this, "There is an Error", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setFavorite(state : Boolean){
+        if (state){
+            detailActivityViewBindng.FavoriteButton.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this, R.drawable.ic_favorite
+                )
+            )
+        }else{
+            detailActivityViewBindng.FavoriteButton.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this, R.drawable.ic_unfavorite
+                )
+            )
+        }
+    }
+
 }
