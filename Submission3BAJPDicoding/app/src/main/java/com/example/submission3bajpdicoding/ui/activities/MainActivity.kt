@@ -3,12 +3,12 @@ package com.example.submission3bajpdicoding.ui.activities
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.provider.Settings
+
 import androidx.appcompat.app.AppCompatActivity
-import com.example.submission3bajpdicoding.R
+
 import com.example.submission3bajpdicoding.databinding.ActivityMainBinding
 import com.example.submission3bajpdicoding.ui.favorite.FavoriteActivity
-import com.example.submission3bajpdicoding.utilities.PagerSectionAdapter
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var activityMainBinding: ActivityMainBinding

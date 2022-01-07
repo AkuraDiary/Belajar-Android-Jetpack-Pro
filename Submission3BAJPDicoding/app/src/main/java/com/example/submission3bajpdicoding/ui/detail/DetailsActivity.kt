@@ -34,8 +34,9 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
         //val factory = ViewModelFactory.getInstance()
         //val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+        val type = intent.getIntExtra(CLICK_STATS, -1)
         val id = intent.getIntExtra(ID, -1)
-        val typeEnum : DetailType = DetailType.values()[id]
+        val typeEnum : DetailType = DetailType.values()[type]
 
         when(typeEnum){
             DetailType.MOVIE -> {

@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.databinding.FragmentMovieBinding
-import com.example.submission3bajpdicoding.ui.adapter.KatalogAdapter
 import com.example.submission3bajpdicoding.ui.adapter.MovieAdapter
-import com.example.submission3bajpdicoding.utilities.ViewModelFactory
+import com.example.submission3bajpdicoding.utilities.SortUtils
 import com.example.submission3bajpdicoding.vo.Resource
+import com.example.submission3bajpdicoding.vo.Status
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentMovie : Fragment() {
@@ -37,22 +37,15 @@ class FragmentMovie : Fragment() {
 
         moviesAdapter = MovieAdapter()
 
-        /*if (activity != null){
-            val factory = ViewModelFactory.getInstance()
-            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
-            val movieAdapter = KatalogAdapter(EXTRA_CLICK_M)
+        setList(SortUtils.NEWEST)
 
-            viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
-                movieAdapter.setAll(movies)
-                movieAdapter.notifyDataSetChanged()
-            })
+        binding.progressBar.visibility = View.VISIBLE
 
-            with(binding.rvMoviePlaceholder) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = movieAdapter
-            }
-        }*/
+        with(binding.rvMoviePlaceholder){
+            layoutManager = LinearLayoutManager(context)
+            this.setHasFixedSize(true)
+            this.adapter = moviesAdapter
+        }
 
     }
 
@@ -61,7 +54,20 @@ class FragmentMovie : Fragment() {
     }
 
     private val moviesObserver = Observer<Resource<PagedList<Items>>>{
-        TODO("belum di buat")
+        movieItem -> if(movieItem != null){
+            when(movieItem.status){
+                Status.LOADING -> binding.progressBar.visibility = View.VISIBLE
+                Status.SUCCESS -> {
+                    binding.progressBar.visibility = View.GONE
+                    moviesAdapter.submitList(movieItem.data)
+                    moviesAdapter.notifyDataSetChanged()
+                }
+                Status.ERROR -> {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(context, "There is an Error", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     companion object{

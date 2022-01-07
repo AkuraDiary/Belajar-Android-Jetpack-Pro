@@ -16,8 +16,9 @@ class HomeViewPagerAdapter (private val context : Context, fragmentManager: Frag
         R.string.text_tv_show
     )
     private val fragment : List<Fragment> = listOf(
-        FragmentTV(),
-        FragmentMovie()
+        FragmentMovie(),
+        FragmentTV()
+
     )
 
     override fun getPageTitle(position: Int): CharSequence {
