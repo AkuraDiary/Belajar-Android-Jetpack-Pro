@@ -3,7 +3,6 @@ package com.example.submission3bajpdicoding.ui.activities
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.submission3bajpdicoding.databinding.ActivityMainBinding
