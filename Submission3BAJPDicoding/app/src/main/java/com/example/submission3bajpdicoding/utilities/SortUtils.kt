@@ -9,7 +9,7 @@ object SortUtils {
     const val POPULARITY = "popularity"
 
     fun getSortedQueryMovies(filter: String): SimpleSQLiteQuery {
-        val simpleQuery = StringBuilder().append("SELECT * FROM movie_entities where isTvShow = 0 ")
+        val simpleQuery = StringBuilder().append("SELECT * FROM tabel_items where isTvShow = 0 ")
         when (filter) {
             NEWEST -> {
                 simpleQuery.append("ORDER BY releaseDate DESC")
@@ -25,7 +25,7 @@ object SortUtils {
     }
 
     fun getSortedQueryTvShow(filter: String): SimpleSQLiteQuery {
-        val simpleQuery = StringBuilder().append("SELECT * FROM movie_entities where isTvShow = 1 ")
+        val simpleQuery = StringBuilder().append("SELECT * FROM tabel_items where isTvShow = 1 ")
         when (filter) {
             NEWEST -> {
                 simpleQuery.append("ORDER BY releaseDate DESC")

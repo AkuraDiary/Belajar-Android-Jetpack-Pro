@@ -14,11 +14,12 @@ import com.example.submission3bajpdicoding.ui.adapter.TvShowAdapter
 import com.example.submission3bajpdicoding.utilities.SortUtils
 import com.example.submission3bajpdicoding.vo.Resource
 import com.example.submission3bajpdicoding.vo.Status
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentTV : Fragment(){
 
     private lateinit var binding : FragmentTvBinding
-    private lateinit var viewModel : TvViewModel
+    private val viewModel : TvViewModel by viewModel()
     private lateinit var _adapter: TvShowAdapter
 
     override fun onCreateView(
