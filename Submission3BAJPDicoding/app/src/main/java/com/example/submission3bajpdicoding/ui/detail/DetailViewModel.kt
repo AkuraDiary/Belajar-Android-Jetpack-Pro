@@ -20,11 +20,13 @@ class DetailViewModel(private val itemsRepository: ItemsRepository) : ViewModel(
         this.tvId.value = tvShowId
     }
 
-    var movieDetail: LiveData<Resource<Items>> = Transformations.switchMap(movieId){
+    var movieDetail: LiveData<Resource<Items>> =
+        Transformations.switchMap(movieId){
         id -> itemsRepository.getMovieById(id)
     }
 
-    var tvDetail: LiveData<Resource<Items>> = Transformations.switchMap(tvId){
+    var tvDetail: LiveData<Resource<Items>> =
+        Transformations.switchMap(tvId){
         id -> itemsRepository.getTvShowsById(id)
     }
 

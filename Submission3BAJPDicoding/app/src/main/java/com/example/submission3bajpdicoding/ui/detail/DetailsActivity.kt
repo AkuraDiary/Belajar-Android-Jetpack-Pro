@@ -32,11 +32,9 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
 
         collapseToolbarConfiguration()
 
-        //val factory = ViewModelFactory.getInstance()
-        //val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
-        val type = intent.getIntExtra(CLICK_STATS, -1)
-        val id = intent.getIntExtra(ID, -1)
+        val type = intent.getIntExtra(CLICK_STATS, 1)
         val typeEnum : DetailType = DetailType.values()[type]
+        val id = intent.getIntExtra(ID, 1)
 
         when(typeEnum){
             DetailType.MOVIE -> {
@@ -47,6 +45,7 @@ class DetailsActivity : AppCompatActivity(), DetailsDataBinding {
                     }
                 })
             }
+
             DetailType.TV_SHOW -> {
                 viewModel.setSelectedTV(id)
                 viewModel.tvDetail.observe(this, {tv ->
