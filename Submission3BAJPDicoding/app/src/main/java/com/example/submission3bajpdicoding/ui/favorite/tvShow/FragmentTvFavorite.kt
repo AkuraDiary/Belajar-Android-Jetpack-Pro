@@ -32,6 +32,20 @@ class FragmentTvFavorite : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        itemTouchHelper.attachToRecyclerView(binding?.rvTVPlaceholderFavorite)
+        favoriteTvAdapter = FavoriteTvAdapter()
+
+        binding?.progressBar?.visibility = View.VISIBLE
+        viewModel.getFavoriteTvShows().observe(requireActivity(), { item ->
+            binding?.progressBar?.visibility = View.GONE
+            favoriteTvAdapter.submitList(item)
+        })
+
+        with(binding?.rvTVPlaceholderFavorite){
+            this?.setHasFixedSize(true)
+            this?.adapter = favoriteTvAdapter
+        }
+
     }
 
     private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback(){

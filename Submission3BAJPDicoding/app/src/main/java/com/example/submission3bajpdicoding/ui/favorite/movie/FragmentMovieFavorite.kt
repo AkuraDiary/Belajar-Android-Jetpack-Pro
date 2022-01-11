@@ -33,7 +33,20 @@ class FragmentMovieFavorite : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        itemTouchHelper.attachToRecyclerView(binding?.rvMoviePlaceholderFavorite)
+        favoriteAdapter = FavoriteMovieAdapter()
 
+        binding?.progressBar?.visibility = View.VISIBLE
+        viewModel.getFavoriteMovies().observe(requireActivity(), {item ->
+            binding?.progressBar?.visibility = View.GONE
+            favoriteAdapter.submitList(item)
+
+        })
+
+        with(binding?.rvMoviePlaceholderFavorite){
+            this?.setHasFixedSize(true)
+            this?.adapter = favoriteAdapter
+        }
     }
 
     private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
