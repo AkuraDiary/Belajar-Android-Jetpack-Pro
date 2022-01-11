@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.databinding.FragmentTvBinding
 import com.example.submission3bajpdicoding.ui.adapter.TvShowAdapter
@@ -54,6 +55,7 @@ class FragmentTV : Fragment(){
         setList(SortUtils.NEWEST)
 
         with(binding.rvTVPlaceholder){
+            layoutManager = LinearLayoutManager(context)
             this.setHasFixedSize(true)
             this.adapter = _adapter
         }

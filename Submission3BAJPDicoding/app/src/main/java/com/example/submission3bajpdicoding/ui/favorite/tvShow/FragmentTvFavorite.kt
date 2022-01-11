@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.submission3bajpdicoding.databinding.FragmentFavoriteTvBinding
 import com.example.submission3bajpdicoding.ui.adapter.FavoriteTvAdapter
@@ -42,10 +43,10 @@ class FragmentTvFavorite : Fragment() {
         })
 
         with(binding?.rvTVPlaceholderFavorite){
+            this?.layoutManager = LinearLayoutManager(context)
             this?.setHasFixedSize(true)
             this?.adapter = favoriteTvAdapter
         }
-
     }
 
     private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback(){
