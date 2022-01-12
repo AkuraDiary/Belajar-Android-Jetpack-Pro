@@ -30,14 +30,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FavoriteActivity::class.java)
             startActivity(intent)
         }
-
-        /*val pagerSectionAdapter = PagerSectionAdapter(this, supportFragmentManager)
-        activityMainBinding.mainToolbar.title = getString(R.string.app_name)
-
-        activityMainBinding.mainViewPager.adapter = pagerSectionAdapter
-
-        activityMainBinding.mainToolbar.setTitleTextColor(Color.WHITE)
-        activityMainBinding.mainTabs.setTabTextColors(Color.WHITE, Color.CYAN)
-        activityMainBinding.mainTabs.setupWithViewPager(activityMainBinding.mainViewPager)*/
     }
 } 
