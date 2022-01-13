@@ -6,16 +6,16 @@ import androidx.paging.PagedList
 import com.example.submission3bajpdicoding.data.source.ItemsRepository
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 
-class FavoriteViewModel(private val movieRepository: ItemsRepository) : ViewModel() {
+class FavoriteViewModel(private val itemsRepository: ItemsRepository) : ViewModel() {
 
     fun getFavoriteMovies(): LiveData<PagedList<Items>> =
-        movieRepository.getFavoriteMovies()
+        itemsRepository.getFavoriteMovies()
 
     fun getFavoriteTvShows(): LiveData<PagedList<Items>> =
-        movieRepository.getFavoriteTvShow()
+        itemsRepository.getFavoriteTvShow()
 
     fun setFavoriteData(items: Items) {
         val newState = !items.isFavorite
-        movieRepository.setToFavorite(items, newState)
+        itemsRepository.setToFavorite(items, newState)
     }
 }
