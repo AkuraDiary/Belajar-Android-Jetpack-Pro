@@ -3,9 +3,12 @@ package com.example.submission3bajpdicoding.ui.movies
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.example.submission3bajpdicoding.data.source.ItemsRepository
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.utilities.DataDummy
+import com.example.submission3bajpdicoding.utilities.SortUtils
+import com.example.submission3bajpdicoding.vo.Resource
 import org.junit.Assert.*
 
 import org.junit.Before
@@ -21,6 +24,7 @@ import org.mockito.junit.MockitoJUnitRunner
 class MovieViewModelTest {
 
     private lateinit var movieViewModel: MovieViewModel
+    private val sort = SortUtils.NEWEST
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -29,7 +33,10 @@ class MovieViewModelTest {
     private lateinit var itemsRepository: ItemsRepository
 
     @Mock
-    private lateinit var observer: Observer<List<Items>>
+    private lateinit var observer: Observer<Resource<PagedList<Items>>>
+
+    @Mock
+    private lateinit var pagedList: PagedList<Items>
 
     @Before
     fun setUp() {
@@ -38,17 +45,19 @@ class MovieViewModelTest {
 
     @Test
     fun getMovie(){
-        val dataDummyMovie = DataDummy.generateDummyMovies()
-        val movie = MutableLiveData<List<Items>>()
-        movie.value = dataDummyMovie
+        val dataDummy = Resource.success(pagedList)
+        `when`(dataDummy.data?.size).thenReturn(2)
+        val movie = MutableLiveData<Resource<PagedList<Items>>>()
+        movie.value = dataDummy
 
-        `when`(itemsRepository.getAllMovies()).thenReturn(movie)
-        val items = movieViewModel.getMovies().value
-        verify(itemsRepository).getAllMovies()
-        assertNotNull(items)
-        assertEquals(2, items?.size)
+        `when`(itemsRepository.getAllMovies(sort)).thenReturn(movie)
+        val item  = movieViewModel.getMovies(sort).value?.data
+        verify(itemsRepository).getAllMovies(sort)
 
-        movieViewModel.getMovies().observeForever(observer)
-        verify(observer).onChanged(dataDummyMovie)
+        assertNotNull(item)
+        assertEquals(2, item?.size)
+
+        movieViewModel.getMovies(sort).observeForever(observer)
+        verify(observer).onChanged(dataDummy)
     }
 }
