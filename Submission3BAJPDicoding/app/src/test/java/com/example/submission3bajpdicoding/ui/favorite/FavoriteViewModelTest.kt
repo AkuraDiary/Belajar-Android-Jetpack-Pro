@@ -5,16 +5,24 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.example.submission3bajpdicoding.data.source.ItemsRepository
+import com.example.submission3bajpdicoding.data.source.local.LocalDataSource
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
+import com.example.submission3bajpdicoding.data.source.remote.RemoteDataSource
+import com.example.submission3bajpdicoding.util.PagedLIstUtils
+import com.example.submission3bajpdicoding.utilities.AppExecutors
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class FavoriteViewModelTest {
 
     private lateinit var viewModel: FavoriteViewModel
