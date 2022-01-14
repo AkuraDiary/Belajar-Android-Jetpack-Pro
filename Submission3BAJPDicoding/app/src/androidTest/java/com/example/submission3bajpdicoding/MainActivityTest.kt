@@ -101,6 +101,48 @@ class MainActivityTest{
         activity.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
+    private fun addMovieToFavorite(){
+        onView(withId(R.id.rv_movie_placeholder))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.FavoriteButton)).check(matches(isDisplayed()))
+            .perform(click())
+
+        onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
+    }
+
+    private fun removeMovieFromFavorite(){
+        onView(withId(R.id.rv_movie_placeholder))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.FavoriteButton)).check(matches(isDisplayed()))
+            .perform(click())
+
+        onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
+    }
+
+    private fun addTvToFavorite(){
+        onView(withId(R.id.rv_movie_placeholder)).perform(swipeLeft())
+        onView(withId(R.id.rv_TV_placeholder))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.FavoriteButton)).check(matches(isDisplayed()))
+            .perform(click())
+
+        onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
+    }
+
+    private fun removeTvFromFavorite(){
+        onView(withId(R.id.rv_movie_placeholder)).perform(swipeLeft())
+        onView(withId(R.id.rv_TV_placeholder))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.FavoriteButton)).check(matches(isDisplayed()))
+            .perform(click())
+
+        onView(withId(R.id.poster_big_placeholder)).perform(pressBack())
+    }
+
     @Test
     fun test1(){
         loadMovieAndTvData()
@@ -119,6 +161,11 @@ class MainActivityTest{
     @Test
     fun test4(){
         tesRotasi()
+    }
+
+    @Test
+    fun test5(){
+
     }
 
     @After

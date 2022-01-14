@@ -38,10 +38,13 @@ class FragmentMovieFavorite : Fragment() {
         favoriteAdapter = FavoriteMovieAdapter()
 
         binding?.progressBar?.visibility = View.VISIBLE
+        binding?.noFav?.visibility = View.VISIBLE
         viewModel.getFavoriteMovies().observe(requireActivity(), {item ->
             binding?.progressBar?.visibility = View.GONE
+            if (item.size >= 1){
+                binding?.noFav?.visibility = View.GONE
+            }
             favoriteAdapter.submitList(item)
-
         })
 
         with(binding?.rvMoviePlaceholderFavorite){

@@ -37,8 +37,12 @@ class FragmentTvFavorite : Fragment() {
         favoriteTvAdapter = FavoriteTvAdapter()
 
         binding?.progressBar?.visibility = View.VISIBLE
+        binding?.noFav?.visibility = View.VISIBLE
         viewModel.getFavoriteTvShows().observe(requireActivity(), { item ->
             binding?.progressBar?.visibility = View.GONE
+            if (item.size >= 1){
+                binding?.noFav?.visibility = View.GONE
+            }
             favoriteTvAdapter.submitList(item)
         })
 

@@ -3,12 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.favorite.movie.FragmentMovieFavorite">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie_placeholder_favorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/noFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_fav"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_TV_placeholder_Favorite"
+        app:layout_constraintEnd_toEndOf="@+id/rv_TV_placeholder_Favorite"
+        app:layout_constraintStart_toStartOf="@+id/rv_TV_placeholder_Favorite"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"

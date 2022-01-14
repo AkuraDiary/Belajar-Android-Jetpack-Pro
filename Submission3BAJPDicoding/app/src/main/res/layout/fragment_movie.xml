@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.movies.FragmentMovie">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_item_layout"/>
-
 
     <ProgressBar
         android:id="@+id/progressBar"
