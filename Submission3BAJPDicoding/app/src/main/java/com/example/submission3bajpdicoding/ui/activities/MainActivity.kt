@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.submission3bajpdicoding.R
 
 import com.example.submission3bajpdicoding.databinding.ActivityMainBinding
 import com.example.submission3bajpdicoding.ui.favorite.FavoriteActivity
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(activityMainBinding.root)
         supportActionBar?.hide()
+        activityMainBinding.mainToolbar.title = getString(R.string.Home_txt)
 
         activityMainBinding.mainViewPager.adapter = viewPagerAdapter
         activityMainBinding.mainTabs.setupWithViewPager(activityMainBinding.mainViewPager)

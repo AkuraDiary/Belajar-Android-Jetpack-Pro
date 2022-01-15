@@ -15,4 +15,6 @@
     <string name="favorite_movie_text">Favorite Movie</string>
     <string name="favorite_tv_text">Favorite TV</string>
     <string name="no_fav">Tidak ada data Favorite</string>
+    <string name="fav_txt">Favorite</string>
+    <string name="Home_txt">Home</string>
 </resources>

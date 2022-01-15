@@ -165,7 +165,13 @@ class MainActivityTest{
 
     @Test
     fun test5(){
-
+        addMovieToFavorite()
+        addTvToFavorite()
+        onView(withId(R.id.ivFavoriteMain)).check(matches(isDisplayed())).perform(click())
+        onView(withId((R.id.favoriteViewPager))).perform(pressBack())
+        onView(withId((R.id.rv_TV_placeholder))).perform(swipeRight())
+        removeMovieFromFavorite()
+        removeTvFromFavorite()
     }
 
     @After

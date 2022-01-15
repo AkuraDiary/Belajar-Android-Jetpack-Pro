@@ -21,6 +21,10 @@ class FavoritePageAdapter(private val context: Context, fm : FragmentManager)
         FragmentTvFavorite()
     )
 
+    override fun getPageTitle(position: Int): CharSequence {
+        return context.getString(tabListFavoriteOf[position])
+    }
+
     override fun getCount(): Int {
         return tabListFavoriteOf.size
     }
