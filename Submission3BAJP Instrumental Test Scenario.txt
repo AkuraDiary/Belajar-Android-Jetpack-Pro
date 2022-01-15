@@ -1,0 +1,53 @@
+1. Pengujian menampilkan data movie dan tv show
+    memastikan rv_movie_placeholder berhasil ditampilkan
+    memastikan dapat melakukan scroll list ke posisi terakhir dan kembali ke atas pada rv_movie_placeholder
+    memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
+    memastikan tab TV SHOWS telah dipilih dengan melakukan klik di tab TV SHOWS
+    memastikan rv_TV_placeholder berhasil ditampilkan
+    memastikan dapat melakukan scroll list ke poisi terakhir dan kembali ke atas pada rv_TV_placeholder
+
+2. Pengujian menampilkan data detail movie
+    memastikan rv_movie_placeholder berhasil ditampilkan
+    memilih item pertama di rv_movie_placeholder
+    memastikan data di cv_tv_title ditampilkan 
+    memastikan data di cv_tv_release ditampilkan 
+    memastikan data di cv_tv_originalTitle ditampilkan 
+    memastikan data di cv_tv_popularity ditampilkan 
+    memastikan data di cv_tv_score ditampilkan 
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali
+
+3. Pengujian menampilkan data detail tv show
+    memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
+    memastikan rv_TV_placeholder shows berhasil ditampilkan
+    memilih item pertama di rv_TV_placeholder
+    memastikan data di cv_tv_title ditampilkan 
+    memastikan data di cv_tv_release ditampilkan 
+    memastikan data di cv_tv_originalTitle ditampilkan 
+    memastikan data di cv_tv_popularity ditampilkan
+    memastikan data di cv_tv_score ditampilkan 
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali
+
+4. Pengujian memastikan aplikasi tetap bisa berjalan saat melakukan rotasi
+    melakukan rotasi ke landscape
+    melakukan test pada nomor 1
+    melakukan test pada nomor 2
+    melakukan test pada nomor 3
+    memastikan dapat melakukan rotasi kembali ke potrait
+
+5. Pengujian untuk menambahkan item ke favorit dan menghapusnya
+    memilih item pertama di rv_movie_placeholder
+    memastikan FavoriteButton ditampilkan dan melakukan klik pada FavortieButton
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali    
+    memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
+    memilih item pertama di rv_TV_placeholder
+    memastikan FavoriteButton ditampilkan dan melakukan klik pada FavortieButton
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali    
+    memastikan ivFavoriteMain ditampilkan dan melakukan klik pada ivFavoriteMain
+    memastikan favoirteViewPager ditampilkan dan memastikan dapat kembali ke daftar list dengan menekan tombol kembali
+    memilih item pertama di rv_movie_placeholder
+    memastikan FavoriteButton ditampilkan dan melakukan klik pada FavortieButton
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali 
+    memastikan bisa berpindah ke tab tv dengan melakukan swipe ke kiri di rv_movie_placeholder
+    memilih item pertama di rv_TV_placeholder
+    memastikan FavoriteButton ditampilkan dan melakukan klik pada FavortieButton
+    memastikan dapat kembali ke daftar list dengan menekan tombol kembali 

@@ -59,18 +59,17 @@ class ItemRepositoryTest {
         val movieResponse = movieResponse[0]
 
         assertNotNull(movieItem)
-        if (movieItem != null){
-            assertEquals(movieResponse.id, movieItem.id)
-            assertEquals(movieResponse.title, movieItem.title)
-            assertEquals(movieResponse.OriginalTitle, movieItem.OriginalTitle)
-            assertEquals(movieResponse.ReleaseDate, movieItem.ReleaseDate)
-            assertEquals(movieResponse.popularity, movieItem.popularity)
-            assertEquals(movieResponse.score, movieItem.score)
-            assertEquals(movieResponse.poster, movieItem.poster)
-            assertEquals(movieResponse.synopsis, movieItem.synopsis)
-            assertEquals(movieResponse.isFavorite, movieItem.isFavorite)
-            assertEquals(movieResponse.isTvShow, movieItem.isTvShow)
-        }
+        assertEquals(movieResponse.id, movieItem?.id)
+        assertEquals(movieResponse.title, movieItem?.title)
+        assertEquals(movieResponse.OriginalTitle, movieItem?.OriginalTitle)
+        assertEquals(movieResponse.ReleaseDate, movieItem?.ReleaseDate)
+        assertEquals(movieResponse.popularity, movieItem?.popularity)
+        assertEquals(movieResponse.score, movieItem?.score)
+        assertEquals(movieResponse.poster, movieItem?.poster)
+        assertEquals(movieResponse.synopsis, movieItem?.synopsis)
+        assertEquals(movieResponse.isFavorite, movieItem?.isFavorite)
+        assertEquals(movieResponse.isTvShow, movieItem?.isTvShow)
+
     }
 
     @Test
@@ -96,18 +95,18 @@ class ItemRepositoryTest {
         val tvResponse = tvResponse[0]
 
         assertNotNull(tvItem)
-        if (tvItem != null){
-            assertEquals(tvResponse.id, tvItem.id)
-            assertEquals(tvResponse.title, tvItem.title)
-            assertEquals(tvResponse.OriginalTitle, tvItem.OriginalTitle)
-            assertEquals(tvResponse.ReleaseDate, tvItem.ReleaseDate)
-            assertEquals(tvResponse.popularity, tvItem.popularity)
-            assertEquals(tvResponse.score, tvItem.score)
-            assertEquals(tvResponse.poster, tvItem.poster)
-            assertEquals(tvResponse.synopsis, tvItem.synopsis)
-            assertEquals(tvResponse.isFavorite, tvItem.isFavorite)
-            assertEquals(tvResponse.isTvShow, tvItem.isTvShow)
-        }
+
+        assertEquals(tvResponse.id, tvItem?.id)
+        assertEquals(tvResponse.title, tvItem?.title)
+        assertEquals(tvResponse.OriginalTitle, tvItem?.OriginalTitle)
+        assertEquals(tvResponse.ReleaseDate, tvItem?.ReleaseDate)
+        assertEquals(tvResponse.popularity, tvItem?.popularity)
+        assertEquals(tvResponse.score, tvItem?.score)
+        assertEquals(tvResponse.poster, tvItem?.poster)
+        assertEquals(tvResponse.synopsis, tvItem?.synopsis)
+        assertEquals(tvResponse.isFavorite, tvItem?.isFavorite)
+        assertEquals(tvResponse.isTvShow, tvItem?.isTvShow)
+
     }
 
     @Test

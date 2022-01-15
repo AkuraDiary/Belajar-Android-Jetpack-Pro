@@ -7,6 +7,8 @@ import com.example.submission3bajpdicoding.data.source.ItemsRepository
 import com.example.submission3bajpdicoding.data.source.local.entity.Items
 import com.example.submission3bajpdicoding.utilities.DataDummy
 import com.example.submission3bajpdicoding.vo.Resource
+import junit.framework.Assert.assertEquals
+import junit.framework.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -43,23 +45,53 @@ class DetailViewModelTest {
 
     @Test
     fun getDetailMovie(){
-        val movieDetail = Resource.success(dataDummyMovies)
+        val itemsDummy = Resource.success(dataDummyMovies)
         val movie = MutableLiveData<Resource<Items>>()
-        movie.value = movieDetail
+        movie.value = itemsDummy
 
         `when`(itemsRepository.getMovieById(movieId!!)).thenReturn(movie)
-        detailViewModel.movieDetail.observeForever(observer)
-        verify(observer).onChanged(movieDetail)
+        val movieItem = detailViewModel.getSelectedMovie(movieId.toString()).value?.data
+        verify(itemsRepository).getMovieById(movieId)
+
+        assertNotNull(movieItem)
+
+        assertEquals(dataDummyMovies.id, movieItem?.id)
+        assertEquals(dataDummyMovies.title, movieItem?.title)
+        assertEquals(dataDummyMovies.OriginalTitle, movieItem?.OriginalTitle)
+        assertEquals(dataDummyMovies.ReleaseDate, movieItem?.ReleaseDate)
+        assertEquals(dataDummyMovies.score, movieItem?.score)
+        assertEquals(dataDummyMovies.popularity, movieItem?.popularity)
+        assertEquals(dataDummyMovies.synopsis, movieItem?.synopsis)
+        assertEquals(dataDummyMovies.poster, movieItem?.poster)
+
+        detailViewModel.getSelectedMovie(movieId.toString()).observeForever(observer)
+        verify(observer).onChanged(itemsDummy)
+
     }
 
     @Test
     fun getDetailTv(){
-        val tvDetail = Resource.success(dataDummyMovies)
-        val movie = MutableLiveData<Resource<Items>>()
-        movie.value = tvDetail
+        val itemsDummy = Resource.success(dataDummyTV)
+        val tvShow = MutableLiveData<Resource<Items>>()
+        tvShow.value = itemsDummy
 
-        `when`(itemsRepository.getMovieById(movieId!!)).thenReturn(movie)
-        detailViewModel.movieDetail.observeForever(observer)
-        verify(observer).onChanged(tvDetail)
+        `when`(itemsRepository.getMovieById(tvId!!)).thenReturn(tvShow)
+        val tvItem = detailViewModel.getSelectedMovie(tvId.toString()).value?.data
+        verify(itemsRepository).getMovieById(tvId)
+
+        assertNotNull(tvItem)
+
+        assertEquals(dataDummyTV.id, tvItem?.id)
+        assertEquals(dataDummyTV.title, tvItem?.title)
+        assertEquals(dataDummyTV.OriginalTitle, tvItem?.OriginalTitle)
+        assertEquals(dataDummyTV.ReleaseDate, tvItem?.ReleaseDate)
+        assertEquals(dataDummyTV.score, tvItem?.score)
+        assertEquals(dataDummyTV.popularity, tvItem?.popularity)
+        assertEquals(dataDummyTV.synopsis, tvItem?.synopsis)
+        assertEquals(dataDummyTV.poster, tvItem?.poster)
+
+        detailViewModel.getSelectedMovie(tvId.toString()).observeForever(observer)
+        verify(observer).onChanged(itemsDummy)
+
     }
 }
